@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 #import "LineView.h"
+#import "ModalViewController.h"
 #import <SDAutoLayout/SDAutoLayout.h>
-@interface ViewController ()
+#import "PresentingAnimator.h"
+#import "DismissingAnimator.h"
+@interface ViewController ()<UIViewControllerTransitioningDelegate>
 {
     CGFloat _i;
 }
@@ -21,7 +24,7 @@
 @end
 
 @implementation ViewController
-
+#pragma mark - lifeCycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -29,6 +32,7 @@
     [self addCircleView];
     [self addSlider];
     [self addButtonAction];
+    [self addButtonAction_One];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -36,7 +40,19 @@
     [_timer invalidate];
     _timer = nil;
 }
+#pragma mark - UIViewControllerTransitioningDelegate
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [PresentingAnimator initWithWidth:0];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [DismissingAnimator new];
+}
 #pragma mark - Private Instance methods
 
 - (void)addCircleView
@@ -72,17 +88,29 @@
 }
 
 -(void)addButtonAction{
-    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 40, 40)];
+    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 20, 20)];
     sh.backgroundColor = [UIColor redColor];
     [self.view addSubview:sh];
     sh.sd_layout
     .topSpaceToView(self.circleView, 100)
-    .centerXEqualToView(self.view)
+    .leftSpaceToView(self.view, 20)
     .widthIs(40)
     .heightIs(40);
     [sh addTarget:self action:@selector(change) forControlEvents:UIControlEventTouchDown];
 }
-
+-(void)addButtonAction_One{
+    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 20, 20)];
+    sh.backgroundColor = [UIColor grayColor];
+    [sh setTitle:@"modal" forState:UIControlStateNormal];
+    [self.view addSubview:sh];
+    sh.sd_layout
+    .topSpaceToView(self.circleView, 100)
+    .leftSpaceToView(self.view, 80)
+    .widthIs(40)
+    .heightIs(40);
+    [sh addTarget:self action:@selector(modal:) forControlEvents:UIControlEventTouchDown];
+}
+#pragma mark -Action
 -(void)change{
     
     //     [self.circleView setStrokeEnd:100 animated:YES];
@@ -96,6 +124,15 @@
     
 
     
+}
+-(void)modal:(id)sender{
+    ModalViewController *modalViewController = [[ModalViewController alloc]init];
+    modalViewController.transitioningDelegate = self;
+    modalViewController.modalPresentationStyle = UIModalPresentationCustom;
+//    [self.navigationController pushViewController:modalViewController animated:YES];
+    [self.navigationController presentViewController:modalViewController
+                                            animated:YES
+                                          completion:NULL];
 }
 -(void)action{
     //    UIView animateWithDuration:(NSTimeInterval) animations:<#^(void)animations#>

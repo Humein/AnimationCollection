@@ -8,8 +8,24 @@
 
 #import "PresentingAnimator.h"
 #import <POP/POP.h>
+@interface PresentingAnimator()
+@property (nonatomic,assign)CGFloat width;
 
+@end
 @implementation PresentingAnimator
++(instancetype)initWithWidth:(CGFloat)width{
+    
+    PresentingAnimator *preView = [[PresentingAnimator alloc]init];
+   
+    if (width) {
+        preView.width = width;
+    }else{
+        preView.width = 104.f;
+    }
+    return preView;
+}
+
+
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.5f;
@@ -26,10 +42,11 @@
     dimmingView.layer.opacity = 0.0;
     //toView modelView大小
     UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
+    toView.layer.cornerRadius = 8.f;
     toView.frame = CGRectMake(0,
                               0,
-                              CGRectGetWidth(transitionContext.containerView.bounds) - 0.f,
-                              CGRectGetHeight(transitionContext.containerView.bounds) - 0.f);
+                              CGRectGetWidth(transitionContext.containerView.bounds) - self.width,
+                              CGRectGetHeight(transitionContext.containerView.bounds) - 288.f);
     toView.center = CGPointMake(transitionContext.containerView.center.x, -transitionContext.containerView.center.y);
     
     [transitionContext.containerView addSubview:dimmingView];
