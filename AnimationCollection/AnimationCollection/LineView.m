@@ -8,9 +8,10 @@
 
 #import "LineView.h"
 #import <POP/POP.h>
+#import <SDAutoLayout/SDAutoLayout.h>
 @interface LineView()
 @property(nonatomic) CAShapeLayer *circleLayer;
-- (void)addCircleLayer;
+- (void)addCircleLayer:(CGRect)frame;
 - (void)animateToStrokeEnd:(CGFloat)strokeEnd;
 @end
 @implementation LineView
@@ -19,8 +20,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSAssert(frame.size.width == frame.size.height, @"A circle must have the same height and width.");
-        [self addCircleLayer];
+//        NSAssert(frame.size.width == frame.size.height, @"A circle must have the same height and width.");
+        [self addCircleLayer:frame];
     }
     return self;
 }
@@ -63,9 +64,9 @@
  // 通过CGPath创建
  + (instancetype)bezierPathWithCGPath:(CGPathRef)CGPath;
  */
-- (void)addCircleLayer
+- (void)addCircleLayer:(CGRect)frame
 {
-    CGFloat lineWidth = 4.f;
+    CGFloat lineWidth = frame.size.height;
     CGFloat radius = CGRectGetWidth(self.bounds)/2 - lineWidth/2;
     self.circleLayer = [CAShapeLayer layer];
     CGRect rect = CGRectMake(lineWidth/2, lineWidth/2, radius * 2, radius * 2);
@@ -76,22 +77,22 @@
     
     
     // 1   创建指定位置圆角的矩形路径
-    self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
-                                                      cornerRadius:radius].CGPath;
+//    self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
+//                                                      cornerRadius:radius].CGPath;
    
-    /*
+
     // 2  直线
     
     // 1. 初始化 (UIBezierPath) 路径
     UIBezierPath *path = [UIBezierPath bezierPath];
     // 2. 添加起点 moveToPoint:(CGPoint)
-    [path moveToPoint:CGPointMake(0, 20)];
+    [path moveToPoint:CGPointMake(0, 0)];
     // 3. 添加经过点 addLineToPoint:(CGPoint)
-    [path addLineToPoint:CGPointMake(self.frame.size.width, 20)];
+    [path addLineToPoint:CGPointMake(frame.size.width,0)];
     self.circleLayer.path = path.CGPath;
     
     
-    */
+
     
     
     self.circleLayer.strokeColor = self.tintColor.CGColor;

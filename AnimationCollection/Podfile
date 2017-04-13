@@ -2,5 +2,6 @@ source 'https://github.com/CocoaPods/Specs'
 platform :ios, “8.0”
 target "AnimationCollection" do
 pod "pop"
+pod 'SDAutoLayout', '~> 2.1.3'
 end
 

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C0BA0E6F61601FEB2C3D695736CE9EE9'
-               BlueprintName = 'Pods-AnimationCollection'
+               BlueprintIdentifier = 'C5986890422EDE54369EAA69115202B9'
+               BlueprintName = 'SDAutoLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-AnimationCollection.a'>
+               BuildableName = 'libSDAutoLayout.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
