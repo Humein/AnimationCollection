@@ -15,6 +15,8 @@
 		336D7D781E9F0D5700E82E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336D7D761E9F0D5700E82E43 /* LaunchScreen.storyboard */; };
 		336D7D831E9F0D5700E82E43 /* AnimationCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7D821E9F0D5700E82E43 /* AnimationCollectionTests.m */; };
 		336D7D8E1E9F0D5700E82E43 /* AnimationCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7D8D1E9F0D5700E82E43 /* AnimationCollectionUITests.m */; };
+		336D7D9D1E9F16EA00E82E43 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7D9C1E9F16EA00E82E43 /* LineView.m */; };
+		71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,11 @@
 		336D7D891E9F0D5700E82E43 /* AnimationCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		336D7D8D1E9F0D5700E82E43 /* AnimationCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationCollectionUITests.m; sourceTree = "<group>"; };
 		336D7D8F1E9F0D5700E82E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		336D7D9B1E9F16EA00E82E43 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
+		336D7D9C1E9F16EA00E82E43 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
+		3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnimationCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.release.xcconfig"; sourceTree = "<group>"; };
+		6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,8 @@
 				336D7D811E9F0D5700E82E43 /* AnimationCollectionTests */,
 				336D7D8C1E9F0D5700E82E43 /* AnimationCollectionUITests */,
 				336D7D661E9F0D5700E82E43 /* Products */,
+				8EC8449AB037401E400B6AC1 /* Pods */,
+				6ABC1151AB10F60BE1A31F8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +115,8 @@
 				336D7D6C1E9F0D5700E82E43 /* AppDelegate.m */,
 				336D7D6E1E9F0D5700E82E43 /* ViewController.h */,
 				336D7D6F1E9F0D5700E82E43 /* ViewController.m */,
+				336D7D9B1E9F16EA00E82E43 /* LineView.h */,
+				336D7D9C1E9F16EA00E82E43 /* LineView.m */,
 				336D7D711E9F0D5700E82E43 /* Main.storyboard */,
 				336D7D741E9F0D5700E82E43 /* Assets.xcassets */,
 				336D7D761E9F0D5700E82E43 /* LaunchScreen.storyboard */,
@@ -140,6 +152,23 @@
 			path = AnimationCollectionUITests;
 			sourceTree = "<group>";
 		};
+		6ABC1151AB10F60BE1A31F8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8EC8449AB037401E400B6AC1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */,
+				637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 336D7D921E9F0D5700E82E43 /* Build configuration list for PBXNativeTarget "AnimationCollection" */;
 			buildPhases = (
+				78B6DB99C49D7FC0A9C73010 /* [CP] Check Pods Manifest.lock */,
 				336D7D611E9F0D5700E82E43 /* Sources */,
 				336D7D621E9F0D5700E82E43 /* Frameworks */,
 				336D7D631E9F0D5700E82E43 /* Resources */,
+				15F0A15BFAE9A5C043533CD3 /* [CP] Embed Pods Frameworks */,
+				62A7A9B7764707FB868C20D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,11 +303,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15F0A15BFAE9A5C043533CD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62A7A9B7764707FB868C20D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78B6DB99C49D7FC0A9C73010 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		336D7D611E9F0D5700E82E43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336D7D9D1E9F16EA00E82E43 /* LineView.m in Sources */,
 				336D7D701E9F0D5700E82E43 /* ViewController.m in Sources */,
 				336D7D6D1E9F0D5700E82E43 /* AppDelegate.m in Sources */,
 				336D7D6A1E9F0D5700E82E43 /* main.m in Sources */,
@@ -427,6 +508,7 @@
 		};
 		336D7D931E9F0D5700E82E43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MR4GTF2765;
@@ -439,6 +521,7 @@
 		};
 		336D7D941E9F0D5700E82E43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MR4GTF2765;
@@ -518,6 +601,7 @@
 				336D7D941E9F0D5700E82E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		336D7D951E9F0D5700E82E43 /* Build configuration list for PBXNativeTarget "AnimationCollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +610,7 @@
 				336D7D971E9F0D5700E82E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		336D7D981E9F0D5700E82E43 /* Build configuration list for PBXNativeTarget "AnimationCollectionUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +619,7 @@
 				336D7D9A1E9F0D5700E82E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
