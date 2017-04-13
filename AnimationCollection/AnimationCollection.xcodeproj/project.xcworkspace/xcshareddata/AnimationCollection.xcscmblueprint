@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0E8C8C19BD468831D9C7F4DA1547CB915F360463",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C4E3116EEDD907D2DB86438041AC6E08FE812187" : 9223372036854775807,
+    "0E8C8C19BD468831D9C7F4DA1547CB915F360463" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "00755F80-F3D1-49D6-908F-A7028AC2F4BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C4E3116EEDD907D2DB86438041AC6E08FE812187" : "",
+    "0E8C8C19BD468831D9C7F4DA1547CB915F360463" : "AnimationCollection\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AnimationCollection",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AnimationCollection\/AnimationCollection.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/QinKingHan\/AnimationCollection.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0E8C8C19BD468831D9C7F4DA1547CB915F360463"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "192.168.199.100:Tiku_iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4E3116EEDD907D2DB86438041AC6E08FE812187"
+    }
+  ]
+}
