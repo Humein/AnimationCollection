@@ -19,6 +19,8 @@
 		336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DA81E9F61E600E82E43 /* PresentingAnimator.m */; };
 		336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */; };
 		336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */; };
+		33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E570371EAA00CA00C84C19 /* NumberAnimation.m */; };
+		33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */; };
 		71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,10 @@
 		336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
 		336D7DAD1E9F63FE00E82E43 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		33E570361EAA00CA00C84C19 /* NumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberAnimation.h; sourceTree = "<group>"; };
+		33E570371EAA00CA00C84C19 /* NumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberAnimation.m; sourceTree = "<group>"; };
+		33E570391EAA01F900C84C19 /* POPNumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPNumberAnimation.h; sourceTree = "<group>"; };
+		33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPNumberAnimation.m; sourceTree = "<group>"; };
 		3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnimationCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.release.xcconfig"; sourceTree = "<group>"; };
 		6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 			children = (
 				336D7DA31E9F618900E82E43 /* LineView.h */,
 				336D7DA41E9F618900E82E43 /* LineView.m */,
+				33E570361EAA00CA00C84C19 /* NumberAnimation.h */,
+				33E570371EAA00CA00C84C19 /* NumberAnimation.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +195,8 @@
 				336D7DA81E9F61E600E82E43 /* PresentingAnimator.m */,
 				336D7DAA1E9F62C400E82E43 /* DismissingAnimator.h */,
 				336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */,
+				33E570391EAA01F900C84C19 /* POPNumberAnimation.h */,
+				33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */,
 			);
 			path = TransitioningAnimastion;
 			sourceTree = "<group>";
@@ -397,9 +407,11 @@
 			files = (
 				336D7DA51E9F618900E82E43 /* LineView.m in Sources */,
 				336D7DA21E9F617F00E82E43 /* ViewController.m in Sources */,
+				33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */,
 				336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */,
 				336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */,
 				336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */,
+				33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */,
 				336D7D6D1E9F0D5700E82E43 /* AppDelegate.m in Sources */,
 				336D7D6A1E9F0D5700E82E43 /* main.m in Sources */,
 			);

@@ -87,6 +87,7 @@
     [self.circleView setStrokeEnd:slider.value animated:NO];
 }
 
+
 -(void)addButtonAction{
     UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 20, 20)];
     sh.backgroundColor = [UIColor redColor];
@@ -110,6 +111,12 @@
     .heightIs(40);
     [sh addTarget:self action:@selector(modal:) forControlEvents:UIControlEventTouchDown];
 }
+
+
+-(void)POPNumberAnimation{
+    
+}
+
 #pragma mark -Action
 -(void)change{
     
