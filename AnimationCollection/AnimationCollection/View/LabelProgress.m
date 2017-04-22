@@ -43,12 +43,16 @@
     _upView.layer.cornerRadius  = 2.f;
     _upView.backgroundColor     = [UIColor redColor];
     _upView.layer.masksToBounds = YES; // 核心(不让subview显示超出范围)
+        
+//    从零开始
+    _upView.width = 0;
+        
     [self addSubview:_upView];
     
     // 白色底字
     _upLabel                    = [[UILabel alloc] initWithFrame:_upView.bounds];
     _upLabel.font               = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
-    _upLabel.text               = @"iOS Label Programmer";
+//    _upLabel.text               = @"iOS Label Programmer";
     _upLabel.textColor          = [UIColor whiteColor];
     _upLabel.textAlignment      = NSTextAlignmentCenter;
     [_upView addSubview:_upLabel];
@@ -67,7 +71,7 @@
         _downLabel                    = [[UILabel alloc] initWithFrame:_downView.bounds];
         _downLabel.textColor          = [UIColor redColor];
         _downLabel.font               = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
-        _downLabel.text               = @"iOS Label Programmer";
+//        _downLabel.text               = @"iOS Label Programmer";
         _downLabel.textAlignment = NSTextAlignmentCenter;
         [_downView addSubview:_downLabel];
         
@@ -93,6 +97,7 @@
     [UIView animateWithDuration:0.5f delay:0.f usingSpringWithDamping:3.f initialSpringVelocity:0 options:0 animations:^{
         
         weakSelf.upView.width = arc4random() % 220;
+        NSLog(@"weakSelf.upView.width =====%f",weakSelf.upView.width);
 
     } completion:nil];
 }

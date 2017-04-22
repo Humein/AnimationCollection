@@ -49,7 +49,7 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source
 {
-    return [PresentingAnimator initWithWidth:0];
+    return [PresentingAnimator initWithWidth:22];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
