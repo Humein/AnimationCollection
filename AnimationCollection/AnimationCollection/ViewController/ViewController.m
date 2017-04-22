@@ -12,11 +12,13 @@
 #import <SDAutoLayout/SDAutoLayout.h>
 #import "PresentingAnimator.h"
 #import "DismissingAnimator.h"
+#import "NumberAnimation.h"
 @interface ViewController ()<UIViewControllerTransitioningDelegate>
 {
     CGFloat _i;
 }
-@property(nonatomic) LineView *circleView;
+@property(nonatomic,strong) LineView *circleView;
+@property(nonatomic,strong) NumberAnimation *NumberView;
 - (void)addCircleView;
 - (void)addSlider;
 - (void)sliderChanged:(UISlider *)slider;
@@ -31,8 +33,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self addCircleView];
     [self addSlider];
-    [self addButtonAction];
-    [self addButtonAction_One];
+    [self addChangeProgressButtonAction];
+    [self addModalButtonAction];
+    [self POPNumberAnimation];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -88,9 +91,12 @@
 }
 
 
--(void)addButtonAction{
-    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 20, 20)];
+-(void)addChangeProgressButtonAction{
+    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 40, 40)];
     sh.backgroundColor = [UIColor redColor];
+    sh.titleLabel.font = [UIFont systemFontOfSize: 10.0];
+    [sh setTitle:@"Progress" forState:UIControlStateNormal];
+    [sh setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:sh];
     sh.sd_layout
     .topSpaceToView(self.circleView, 100)
@@ -99,9 +105,11 @@
     .heightIs(40);
     [sh addTarget:self action:@selector(change) forControlEvents:UIControlEventTouchDown];
 }
--(void)addButtonAction_One{
-    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 20, 20)];
+-(void)addModalButtonAction{
+//    CGRect frame = CGRectMake(0.f, 0.f, 60.f, 30.f);
+    UIButton *sh = [[UIButton alloc]initWithFrame:CGRectMake(60, 100, 40, 40)];
     sh.backgroundColor = [UIColor grayColor];
+    sh.titleLabel.font = [UIFont systemFontOfSize: 10.0];
     [sh setTitle:@"modal" forState:UIControlStateNormal];
     [self.view addSubview:sh];
     sh.sd_layout
@@ -114,7 +122,16 @@
 
 
 -(void)POPNumberAnimation{
-    
+    CGRect frame = CGRectMake(0.f, 0.f, 60.f, 30.f);
+    self.NumberView = [[NumberAnimation alloc]initWithFrame:frame];
+    self.NumberView.backgroundColor = [UIColor whiteColor];
+    [self.NumberView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickNumber:)]];
+    [self.view addSubview:self.NumberView];
+    self.NumberView.sd_layout
+    .centerXEqualToView(self.view)
+    .topSpaceToView(self.circleView, 100)
+    .widthIs(frame.size.width)
+    .heightIs(frame.size.height);
 }
 
 #pragma mark -Action
@@ -146,6 +163,13 @@
     NSLog(@"1");
     _i = _i + 0.1f;
     [self.circleView setStrokeEnd:_i animated:YES];
+}
+
+-(void)clickNumber:(UITapGestureRecognizer *)gestureRecognizer{
+    UIView *viewClicked=[gestureRecognizer view];
+    //    DLog(@"viewClicked===%ld",(long)viewClicked.tag);
+    [self.NumberView configNumberAnimation];
+   
 }
 
 - (void)sliderChanged:(UISlider *)slider
