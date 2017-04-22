@@ -7,22 +7,33 @@
 //
 
 #import "ModalViewController.h"
+#import "LabelProgress.h"
 #import <SDAutoLayout/SDAutoLayout.h>
 @interface ModalViewController ()
-
+@property (nonatomic,strong) LabelProgress *labelProgress;
 @end
 
 @implementation ModalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-
+    self.view.backgroundColor = [UIColor whiteColor];
+    CGRect frame = CGRectMake(0, 0, 200, 30);
+    self.labelProgress = [[LabelProgress alloc]initWithFrame:frame];
+    [self.view addSubview:self.labelProgress];
+    
+    self.labelProgress.sd_layout
+    .centerXEqualToView(self.view)
+    .topSpaceToView(self.view, 40)
+    .widthIs(frame.size.width)
+    .heightIs(frame.size.height);
     // Do any additional setup after loading the view.
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-  [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.labelProgress.timer invalidate];
+    self.labelProgress.timer = nil;
     
 }
 - (void)didReceiveMemoryWarning {

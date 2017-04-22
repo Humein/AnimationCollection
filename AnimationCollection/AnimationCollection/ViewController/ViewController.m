@@ -40,8 +40,8 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
-    [_timer invalidate];
-    _timer = nil;
+    [self.timer invalidate];
+    self.timer = nil;
 }
 #pragma mark - UIViewControllerTransitioningDelegate
 
@@ -104,6 +104,14 @@
     .widthIs(40)
     .heightIs(40);
     [sh addTarget:self action:@selector(change) forControlEvents:UIControlEventTouchDown];
+    __weak typeof(self) weakSelf = self;
+    self.circleView.valueBlcok = ^(CGFloat value) {
+        if (value) {
+                [weakSelf.timer invalidate];
+                weakSelf.timer = nil;
+        }
+    };
+    
 }
 -(void)addModalButtonAction{
 //    CGRect frame = CGRectMake(0.f, 0.f, 60.f, 30.f);
@@ -126,6 +134,7 @@
     self.NumberView = [[NumberAnimation alloc]initWithFrame:frame];
     self.NumberView.backgroundColor = [UIColor whiteColor];
     [self.NumberView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickNumber:)]];
+    self.NumberView.tag = 0;
     [self.view addSubview:self.NumberView];
     self.NumberView.sd_layout
     .centerXEqualToView(self.view)
@@ -141,10 +150,10 @@
     
     //    __weak typeof(self) weakSelf = self;
     _i = 0.01f;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(action)
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(action)
                                             userInfo:nil repeats:YES];
     
-    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
 
     
@@ -153,7 +162,6 @@
     ModalViewController *modalViewController = [[ModalViewController alloc]init];
     modalViewController.transitioningDelegate = self;
     modalViewController.modalPresentationStyle = UIModalPresentationCustom;
-//    [self.navigationController pushViewController:modalViewController animated:YES];
     [self.navigationController presentViewController:modalViewController
                                             animated:YES
                                           completion:NULL];
@@ -167,18 +175,18 @@
 
 -(void)clickNumber:(UITapGestureRecognizer *)gestureRecognizer{
     UIView *viewClicked=[gestureRecognizer view];
-    //    DLog(@"viewClicked===%ld",(long)viewClicked.tag);
+    NSLog(@"viewClicked===%ld",(long)viewClicked.tag);
     [self.NumberView configNumberAnimation];
    
 }
 
 - (void)sliderChanged:(UISlider *)slider
 {
-    [_timer setFireDate:[NSDate distantFuture]];
+    [self.timer setFireDate:[NSDate distantFuture]];
     [self.circleView setStrokeEnd:slider.value animated:YES];
 }
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [_timer setFireDate:[NSDate date]];
+    [self.timer setFireDate:[NSDate date]];
 }
 -(void)dealloc
 {

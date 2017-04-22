@@ -11,6 +11,6 @@
 @interface LineView : UIView
 
 @property(nonatomic) UIColor *strokeColor;
-
+@property (nonatomic ,strong) void(^valueBlcok)(CGFloat value);
 - (void)setStrokeEnd:(CGFloat)strokeEnd animated:(BOOL)animated;
 @end

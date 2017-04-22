@@ -77,20 +77,20 @@
     
     
     // 1   创建指定位置圆角的矩形路径
-//    self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
-//                                                      cornerRadius:radius].CGPath;
+    self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
+                                                      cornerRadius:radius].CGPath;
    
 
-    // 2  直线
-    
-    // 1. 初始化 (UIBezierPath) 路径
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    // 2. 添加起点 moveToPoint:(CGPoint)
-    [path moveToPoint:CGPointMake(0, 0)];
-    // 3. 添加经过点 addLineToPoint:(CGPoint)
-    [path addLineToPoint:CGPointMake(frame.size.width,0)];
-    self.circleLayer.path = path.CGPath;
-    
+//    // 2  直线
+//    
+//    // 1. 初始化 (UIBezierPath) 路径
+//    UIBezierPath *path = [UIBezierPath bezierPath];
+//    // 2. 添加起点 moveToPoint:(CGPoint)
+//    [path moveToPoint:CGPointMake(0, 0)];
+//    // 3. 添加经过点 addLineToPoint:(CGPoint)
+//    [path addLineToPoint:CGPointMake(frame.size.width,0)];
+//    self.circleLayer.path = path.CGPath;
+//    
     
 
     
@@ -111,6 +111,12 @@
     strokeAnimation.springBounciness = 12.f;
     strokeAnimation.removedOnCompletion = NO;
     [self.circleLayer pop_addAnimation:strokeAnimation forKey:@"layerStrokeAnimation"];
+    
+    if (strokeEnd >=1) {
+        if (_valueBlcok) {
+            _valueBlcok(strokeEnd);
+        }
+    }
 }
 
 /*
