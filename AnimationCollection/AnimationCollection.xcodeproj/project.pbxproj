@@ -21,8 +21,26 @@
 		336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */; };
 		337F223F1EAB239C00CF393D /* LabelProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F223E1EAB239C00CF393D /* LabelProgress.m */; };
 		337F22421EAB401F00CF393D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F22411EAB401F00CF393D /* UIView+Frame.m */; };
+		33A3882D1F0250FA00321D37 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A3882C1F0250FA00321D37 /* AnimationViewController.m */; };
+		33C5BD8E1F0DDE5C0085C595 /* NSString+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6A1F0DDE5C0085C595 /* NSString+Zirkfied.m */; };
+		33C5BD8F1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6C1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m */; };
+		33C5BD901F0DDE5C0085C595 /* UIColor+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6E1F0DDE5C0085C595 /* UIColor+Zirkfied.m */; };
+		33C5BD911F0DDE5C0085C595 /* UIView+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD701F0DDE5C0085C595 /* UIView+Zirkfied.m */; };
+		33C5BD921F0DDE5C0085C595 /* ZFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD731F0DDE5C0085C595 /* ZFLabel.m */; };
+		33C5BD931F0DDE5C0085C595 /* ZFPopoverLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD751F0DDE5C0085C595 /* ZFPopoverLabel.m */; };
+		33C5BD941F0DDE5C0085C595 /* ZFXAxisLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD771F0DDE5C0085C595 /* ZFXAxisLine.m */; };
+		33C5BD951F0DDE5C0085C595 /* ZFYAxisLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD791F0DDE5C0085C595 /* ZFYAxisLine.m */; };
+		33C5BD961F0DDE5C0085C595 /* ZFConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD7E1F0DDE5C0085C595 /* ZFConst.m */; };
+		33C5BD971F0DDE5C0085C595 /* ZFMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD801F0DDE5C0085C595 /* ZFMethod.m */; };
+		33C5BD981F0DDE5C0085C595 /* ZFGenericAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD831F0DDE5C0085C595 /* ZFGenericAxis.m */; };
+		33C5BD991F0DDE5C0085C595 /* ZFGenericChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD861F0DDE5C0085C595 /* ZFGenericChart.m */; };
+		33C5BD9A1F0DDE5C0085C595 /* ZFCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD891F0DDE5C0085C595 /* ZFCircle.m */; };
+		33C5BD9B1F0DDE5C0085C595 /* ZFLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD8B1F0DDE5C0085C595 /* ZFLine.m */; };
+		33C5BD9C1F0DDE5C0085C595 /* ZFLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD8D1F0DDE5C0085C595 /* ZFLineChart.m */; };
+		33C5BD9F1F0E402D0085C595 /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD9E1F0E402D0085C595 /* IndicatorView.m */; };
 		33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E570371EAA00CA00C84C19 /* NumberAnimation.m */; };
 		33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */; };
+		33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EB8CB81EFA68EA0035F12B /* PopViewController.m */; };
 		71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */; };
 /* End PBXBuildFile section */
 
@@ -72,10 +90,48 @@
 		337F223E1EAB239C00CF393D /* LabelProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelProgress.m; sourceTree = "<group>"; };
 		337F22401EAB401F00CF393D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		337F22411EAB401F00CF393D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		33A3882B1F0250FA00321D37 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		33A3882C1F0250FA00321D37 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		33C5BD691F0DDE5C0085C595 /* NSString+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Zirkfied.h"; sourceTree = "<group>"; };
+		33C5BD6A1F0DDE5C0085C595 /* NSString+Zirkfied.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Zirkfied.m"; sourceTree = "<group>"; };
+		33C5BD6B1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Zirkfied.h"; sourceTree = "<group>"; };
+		33C5BD6C1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Zirkfied.m"; sourceTree = "<group>"; };
+		33C5BD6D1F0DDE5C0085C595 /* UIColor+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Zirkfied.h"; sourceTree = "<group>"; };
+		33C5BD6E1F0DDE5C0085C595 /* UIColor+Zirkfied.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Zirkfied.m"; sourceTree = "<group>"; };
+		33C5BD6F1F0DDE5C0085C595 /* UIView+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Zirkfied.h"; sourceTree = "<group>"; };
+		33C5BD701F0DDE5C0085C595 /* UIView+Zirkfied.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Zirkfied.m"; sourceTree = "<group>"; };
+		33C5BD721F0DDE5C0085C595 /* ZFLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFLabel.h; sourceTree = "<group>"; };
+		33C5BD731F0DDE5C0085C595 /* ZFLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFLabel.m; sourceTree = "<group>"; };
+		33C5BD741F0DDE5C0085C595 /* ZFPopoverLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPopoverLabel.h; sourceTree = "<group>"; };
+		33C5BD751F0DDE5C0085C595 /* ZFPopoverLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPopoverLabel.m; sourceTree = "<group>"; };
+		33C5BD761F0DDE5C0085C595 /* ZFXAxisLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFXAxisLine.h; sourceTree = "<group>"; };
+		33C5BD771F0DDE5C0085C595 /* ZFXAxisLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFXAxisLine.m; sourceTree = "<group>"; };
+		33C5BD781F0DDE5C0085C595 /* ZFYAxisLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFYAxisLine.h; sourceTree = "<group>"; };
+		33C5BD791F0DDE5C0085C595 /* ZFYAxisLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFYAxisLine.m; sourceTree = "<group>"; };
+		33C5BD7B1F0DDE5C0085C595 /* ZFChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFChart.h; sourceTree = "<group>"; };
+		33C5BD7C1F0DDE5C0085C595 /* ZFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFColor.h; sourceTree = "<group>"; };
+		33C5BD7D1F0DDE5C0085C595 /* ZFConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFConst.h; sourceTree = "<group>"; };
+		33C5BD7E1F0DDE5C0085C595 /* ZFConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFConst.m; sourceTree = "<group>"; };
+		33C5BD7F1F0DDE5C0085C595 /* ZFMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFMethod.h; sourceTree = "<group>"; };
+		33C5BD801F0DDE5C0085C595 /* ZFMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFMethod.m; sourceTree = "<group>"; };
+		33C5BD821F0DDE5C0085C595 /* ZFGenericAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFGenericAxis.h; sourceTree = "<group>"; };
+		33C5BD831F0DDE5C0085C595 /* ZFGenericAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFGenericAxis.m; sourceTree = "<group>"; };
+		33C5BD851F0DDE5C0085C595 /* ZFGenericChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFGenericChart.h; sourceTree = "<group>"; };
+		33C5BD861F0DDE5C0085C595 /* ZFGenericChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFGenericChart.m; sourceTree = "<group>"; };
+		33C5BD881F0DDE5C0085C595 /* ZFCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFCircle.h; sourceTree = "<group>"; };
+		33C5BD891F0DDE5C0085C595 /* ZFCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCircle.m; sourceTree = "<group>"; };
+		33C5BD8A1F0DDE5C0085C595 /* ZFLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFLine.h; sourceTree = "<group>"; };
+		33C5BD8B1F0DDE5C0085C595 /* ZFLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFLine.m; sourceTree = "<group>"; };
+		33C5BD8C1F0DDE5C0085C595 /* ZFLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFLineChart.h; sourceTree = "<group>"; };
+		33C5BD8D1F0DDE5C0085C595 /* ZFLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFLineChart.m; sourceTree = "<group>"; };
+		33C5BD9D1F0E402D0085C595 /* IndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
+		33C5BD9E1F0E402D0085C595 /* IndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
 		33E570361EAA00CA00C84C19 /* NumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberAnimation.h; sourceTree = "<group>"; };
 		33E570371EAA00CA00C84C19 /* NumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberAnimation.m; sourceTree = "<group>"; };
 		33E570391EAA01F900C84C19 /* POPNumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPNumberAnimation.h; sourceTree = "<group>"; };
 		33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPNumberAnimation.m; sourceTree = "<group>"; };
+		33EB8CB71EFA68EA0035F12B /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		33EB8CB81EFA68EA0035F12B /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnimationCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.release.xcconfig"; sourceTree = "<group>"; };
 		6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +231,7 @@
 		336D7D9E1E9F614200E82E43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				33C5BD661F0DDE5C0085C595 /* Chart */,
 				336D7DA31E9F618900E82E43 /* LineView.h */,
 				336D7DA41E9F618900E82E43 /* LineView.m */,
 				33E570361EAA00CA00C84C19 /* NumberAnimation.h */,
@@ -194,6 +251,10 @@
 				336D7DA11E9F617F00E82E43 /* ViewController.m */,
 				336D7DAD1E9F63FE00E82E43 /* ModalViewController.h */,
 				336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */,
+				33A3882B1F0250FA00321D37 /* AnimationViewController.h */,
+				33A3882C1F0250FA00321D37 /* AnimationViewController.m */,
+				33EB8CB71EFA68EA0035F12B /* PopViewController.h */,
+				33EB8CB81EFA68EA0035F12B /* PopViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -209,6 +270,103 @@
 				33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */,
 			);
 			path = TransitioningAnimastion;
+			sourceTree = "<group>";
+		};
+		33C5BD661F0DDE5C0085C595 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD671F0DDE5C0085C595 /* GenericMethod */,
+				33C5BD871F0DDE5C0085C595 /* ZFLineChart */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		33C5BD671F0DDE5C0085C595 /* GenericMethod */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD681F0DDE5C0085C595 /* Category */,
+				33C5BD711F0DDE5C0085C595 /* Component */,
+				33C5BD7A1F0DDE5C0085C595 /* Other */,
+				33C5BD811F0DDE5C0085C595 /* ZFGenericAxis */,
+				33C5BD841F0DDE5C0085C595 /* ZFGenericChart */,
+			);
+			path = GenericMethod;
+			sourceTree = "<group>";
+		};
+		33C5BD681F0DDE5C0085C595 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD691F0DDE5C0085C595 /* NSString+Zirkfied.h */,
+				33C5BD6A1F0DDE5C0085C595 /* NSString+Zirkfied.m */,
+				33C5BD6B1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.h */,
+				33C5BD6C1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m */,
+				33C5BD6D1F0DDE5C0085C595 /* UIColor+Zirkfied.h */,
+				33C5BD6E1F0DDE5C0085C595 /* UIColor+Zirkfied.m */,
+				33C5BD6F1F0DDE5C0085C595 /* UIView+Zirkfied.h */,
+				33C5BD701F0DDE5C0085C595 /* UIView+Zirkfied.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		33C5BD711F0DDE5C0085C595 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD721F0DDE5C0085C595 /* ZFLabel.h */,
+				33C5BD731F0DDE5C0085C595 /* ZFLabel.m */,
+				33C5BD741F0DDE5C0085C595 /* ZFPopoverLabel.h */,
+				33C5BD751F0DDE5C0085C595 /* ZFPopoverLabel.m */,
+				33C5BD9D1F0E402D0085C595 /* IndicatorView.h */,
+				33C5BD9E1F0E402D0085C595 /* IndicatorView.m */,
+				33C5BD761F0DDE5C0085C595 /* ZFXAxisLine.h */,
+				33C5BD771F0DDE5C0085C595 /* ZFXAxisLine.m */,
+				33C5BD781F0DDE5C0085C595 /* ZFYAxisLine.h */,
+				33C5BD791F0DDE5C0085C595 /* ZFYAxisLine.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		33C5BD7A1F0DDE5C0085C595 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD7B1F0DDE5C0085C595 /* ZFChart.h */,
+				33C5BD7C1F0DDE5C0085C595 /* ZFColor.h */,
+				33C5BD7D1F0DDE5C0085C595 /* ZFConst.h */,
+				33C5BD7E1F0DDE5C0085C595 /* ZFConst.m */,
+				33C5BD7F1F0DDE5C0085C595 /* ZFMethod.h */,
+				33C5BD801F0DDE5C0085C595 /* ZFMethod.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		33C5BD811F0DDE5C0085C595 /* ZFGenericAxis */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD821F0DDE5C0085C595 /* ZFGenericAxis.h */,
+				33C5BD831F0DDE5C0085C595 /* ZFGenericAxis.m */,
+			);
+			path = ZFGenericAxis;
+			sourceTree = "<group>";
+		};
+		33C5BD841F0DDE5C0085C595 /* ZFGenericChart */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD851F0DDE5C0085C595 /* ZFGenericChart.h */,
+				33C5BD861F0DDE5C0085C595 /* ZFGenericChart.m */,
+			);
+			path = ZFGenericChart;
+			sourceTree = "<group>";
+		};
+		33C5BD871F0DDE5C0085C595 /* ZFLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				33C5BD881F0DDE5C0085C595 /* ZFCircle.h */,
+				33C5BD891F0DDE5C0085C595 /* ZFCircle.m */,
+				33C5BD8A1F0DDE5C0085C595 /* ZFLine.h */,
+				33C5BD8B1F0DDE5C0085C595 /* ZFLine.m */,
+				33C5BD8C1F0DDE5C0085C595 /* ZFLineChart.h */,
+				33C5BD8D1F0DDE5C0085C595 /* ZFLineChart.m */,
+			);
+			path = ZFLineChart;
 			sourceTree = "<group>";
 		};
 		6ABC1151AB10F60BE1A31F8D /* Frameworks */ = {
@@ -415,17 +573,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C5BD991F0DDE5C0085C595 /* ZFGenericChart.m in Sources */,
+				33C5BD8F1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m in Sources */,
+				33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */,
+				33C5BD9F1F0E402D0085C595 /* IndicatorView.m in Sources */,
+				33C5BD9A1F0DDE5C0085C595 /* ZFCircle.m in Sources */,
 				336D7DA51E9F618900E82E43 /* LineView.m in Sources */,
 				336D7DA21E9F617F00E82E43 /* ViewController.m in Sources */,
+				33C5BD9C1F0DDE5C0085C595 /* ZFLineChart.m in Sources */,
 				33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */,
 				336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */,
 				336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */,
 				337F223F1EAB239C00CF393D /* LabelProgress.m in Sources */,
+				33A3882D1F0250FA00321D37 /* AnimationViewController.m in Sources */,
+				33C5BD941F0DDE5C0085C595 /* ZFXAxisLine.m in Sources */,
+				33C5BD931F0DDE5C0085C595 /* ZFPopoverLabel.m in Sources */,
+				33C5BD911F0DDE5C0085C595 /* UIView+Zirkfied.m in Sources */,
+				33C5BD951F0DDE5C0085C595 /* ZFYAxisLine.m in Sources */,
+				33C5BD971F0DDE5C0085C595 /* ZFMethod.m in Sources */,
 				336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */,
 				33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */,
+				33C5BD921F0DDE5C0085C595 /* ZFLabel.m in Sources */,
 				336D7D6D1E9F0D5700E82E43 /* AppDelegate.m in Sources */,
+				33C5BD9B1F0DDE5C0085C595 /* ZFLine.m in Sources */,
+				33C5BD961F0DDE5C0085C595 /* ZFConst.m in Sources */,
 				336D7D6A1E9F0D5700E82E43 /* main.m in Sources */,
+				33C5BD981F0DDE5C0085C595 /* ZFGenericAxis.m in Sources */,
+				33C5BD901F0DDE5C0085C595 /* UIColor+Zirkfied.m in Sources */,
 				337F22421EAB401F00CF393D /* UIView+Frame.m in Sources */,
+				33C5BD8E1F0DDE5C0085C595 /* NSString+Zirkfied.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

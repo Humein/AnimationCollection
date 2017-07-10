@@ -13,12 +13,17 @@
 #import "PresentingAnimator.h"
 #import "DismissingAnimator.h"
 #import "NumberAnimation.h"
-@interface ViewController ()<UIViewControllerTransitioningDelegate>
+#import "PopViewController.h"
+#import "AnimationViewController.h"
+#import <POP/POP.h>
+@interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate>
 {
     CGFloat _i;
 }
 @property(nonatomic,strong) LineView *circleView;
 @property(nonatomic,strong) NumberAnimation *NumberView;
+@property (nonatomic, strong) PopViewController *itemPopVC;
+
 - (void)addCircleView;
 - (void)addSlider;
 - (void)sliderChanged:(UISlider *)slider;
@@ -31,11 +36,29 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(popView)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    
+    
+    
+    
+    
     [self addCircleView];
     [self addSlider];
     [self addChangeProgressButtonAction];
     [self addModalButtonAction];
     [self POPNumberAnimation];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self popView];
+}
+
+-(void)popView{
+    AnimationViewController *VC = [AnimationViewController new];
+    
+    [self.navigationController pushViewController:VC animated:YES];
+
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -60,17 +83,20 @@
 
 - (void)addCircleView
 {
-    CGRect frame = CGRectMake(0.f, 0.f, 300.f, 10.f);
+    CGRect frame = CGRectMake(0.f, 0.f, 30.f, 2.f);
     self.circleView = [[LineView alloc] initWithFrame:frame];
-    self.circleView.strokeColor = [UIColor brownColor];
+    self.circleView.strokeColor = [UIColor redColor];
     self.circleView.center = self.view.center;
+
     [self.view addSubview:self.circleView];
     self.circleView.sd_layout
     .centerXEqualToView(self.view)
     .topSpaceToView(self.view, 100)
     .leftSpaceToView(self.view, 10)
-    .widthIs(300)
-    .heightIs(10);
+    .widthIs(30)
+    .heightIs(2);
+
+    
 }
 
 - (void)addSlider
@@ -141,6 +167,7 @@
     .topSpaceToView(self.circleView, 100)
     .widthIs(frame.size.width)
     .heightIs(frame.size.height);
+    
 }
 
 #pragma mark -Action
@@ -162,6 +189,7 @@
     ModalViewController *modalViewController = [[ModalViewController alloc]init];
     modalViewController.transitioningDelegate = self;
     modalViewController.modalPresentationStyle = UIModalPresentationCustom;
+    modalViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self.navigationController presentViewController:modalViewController
                                             animated:YES
                                           completion:NULL];
@@ -171,11 +199,56 @@
     NSLog(@"1");
     _i = _i + 0.1f;
     [self.circleView setStrokeEnd:_i animated:YES];
+    
+    
+//    UIPopoverPresentationController
+    
+ 
+    
 }
+-(void)popOver{
+    //初始化 VC
+    self.itemPopVC = [[PopViewController alloc] init];
+    // 设置大小
+//    self.itemPopVC.preferredContentSize = CGSizeMake(50, 30);
+    // 设置 Sytle
+    self.itemPopVC.modalPresentationStyle = UIModalPresentationPopover;
+    //可以指示小箭头颜色
+    self.itemPopVC.popoverPresentationController.backgroundColor = [UIColor grayColor];
+    //设置依附的按钮
+//    self.itemPopVC.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
+    // 需要通过 sourceView 来判断位置的
+    self.itemPopVC.popoverPresentationController.sourceView = self.NumberView;
+    // 指定箭头所指区域的矩形框范围（位置和尺寸）,以sourceView的左上角为坐标原点
+    // 这个可以 通过 Point 或  Size 调试位置
+    self.itemPopVC.popoverPresentationController.sourceRect = self.NumberView.bounds;
+    // 箭头方向
+    self.itemPopVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    // 设置代理
+    self.itemPopVC.popoverPresentationController.delegate = self;
+    [self presentViewController:self.itemPopVC animated:YES completion:nil];
+  
+
+    //content尺寸
+    self.itemPopVC.preferredContentSize = CGSizeMake(400, 400);
+}
+
+#pragma mark popOverDelegate
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
+    return UIModalPresentationNone; //不适配
+}
+
+- (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController{
+    return YES;   //点击蒙版popover消失， 默认YES
+}
+
+
+
 
 -(void)clickNumber:(UITapGestureRecognizer *)gestureRecognizer{
     UIView *viewClicked=[gestureRecognizer view];
     NSLog(@"viewClicked===%ld",(long)viewClicked.tag);
+    [self popOver];
     [self.NumberView configNumberAnimation];
    
 }

@@ -11,6 +11,7 @@
 #import <SDAutoLayout/SDAutoLayout.h>
 @interface LineView()
 @property(nonatomic) CAShapeLayer *circleLayer;
+@property(nonatomic) CAShapeLayer *circleBGLayer;
 - (void)addCircleLayer:(CGRect)frame;
 - (void)animateToStrokeEnd:(CGFloat)strokeEnd;
 @end
@@ -20,7 +21,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        NSAssert(frame.size.width == frame.size.height, @"A circle must have the same height and width.");
         [self addCircleLayer:frame];
     }
     return self;
@@ -69,6 +69,7 @@
     CGFloat lineWidth = frame.size.height;
     CGFloat radius = CGRectGetWidth(self.bounds)/2 - lineWidth/2;
     self.circleLayer = [CAShapeLayer layer];
+    self.circleBGLayer = [CAShapeLayer layer];
     CGRect rect = CGRectMake(lineWidth/2, lineWidth/2, radius * 2, radius * 2);
     
     
@@ -79,6 +80,8 @@
     // 1   创建指定位置圆角的矩形路径
     self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
                                                       cornerRadius:radius].CGPath;
+    self.circleBGLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
+                                                       cornerRadius:radius].CGPath;
    
 
 //    // 2  直线
@@ -101,7 +104,15 @@
     self.circleLayer.lineCap = kCALineCapRound;
     self.circleLayer.lineJoin = kCALineJoinRound;
     
+    self.circleBGLayer.strokeColor = [UIColor blackColor].CGColor;
+    self.circleBGLayer.fillColor = nil;
+    self.circleBGLayer.lineWidth = lineWidth;
+    self.circleBGLayer.lineCap = kCALineCapRound;
+    self.circleBGLayer.lineJoin = kCALineJoinRound;
+    
+    [self.layer addSublayer:self.circleBGLayer];
     [self.layer addSublayer:self.circleLayer];
+
 }
 
 - (void)animateToStrokeEnd:(CGFloat)strokeEnd
@@ -119,12 +130,5 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

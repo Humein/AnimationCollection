@@ -36,9 +36,9 @@
     UIView *fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
     fromView.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
     fromView.userInteractionEnabled = NO;
-    
-    UIView *dimmingView = [[UIView alloc] initWithFrame:fromView.bounds];
-    dimmingView.backgroundColor = [UIColor grayColor];
+//    dimmingView 蒙版
+    UIView *dimmingView = [[UIView alloc] initWithFrame:CGRectMake(fromView.bounds.origin.x, fromView.bounds.origin.y+64, fromView.bounds.size.width, fromView.bounds.size.height-64)];
+    dimmingView.backgroundColor = [UIColor blueColor];
     dimmingView.layer.opacity = 0.0;
     //toView modelView大小
     UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
