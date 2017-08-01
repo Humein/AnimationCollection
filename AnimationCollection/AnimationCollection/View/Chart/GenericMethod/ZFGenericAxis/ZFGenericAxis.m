@@ -11,7 +11,8 @@
 #import "ZFLabel.h"
 #import "NSString+Zirkfied.h"
 #import "ZFColor.h"
-
+//modify x 轴下移
+CGFloat const leaveHeigh = 30.f;
 @interface ZFGenericAxis()<UIScrollViewDelegate>
 
 /** 动画时间 */
@@ -71,7 +72,7 @@
     [self addSubview:self.xAxisLine];
     
     //y轴
-    self.yAxisLine = [[ZFYAxisLine alloc] initWithFrame:CGRectMake(0, 0, ZFAxisLineStartXPos, self.bounds.size.height) direction:kAxisDirectionVertical];
+    self.yAxisLine = [[ZFYAxisLine alloc] initWithFrame:CGRectMake(0, leaveHeigh, ZFAxisLineStartXPos, self.bounds.size.height-leaveHeigh) direction:kAxisDirectionVertical];
     self.yAxisLine.backgroundColor = _axisLineBackgroundColor;
     [self addSubview:self.yAxisLine];
 }
@@ -109,10 +110,10 @@
             CGFloat width = _groupWidth;
             CGFloat height = self.frame.size.height - self.xAxisLine.xLineStartYPos - _xLineNameLabelToXAxisLinePadding;
             CGFloat center_xPos = self.xAxisLine.xLineStartXPos + _groupPadding + (_groupWidth + _groupPadding) * i + width * 0.5;
-            CGFloat center_yPos = self.yAxisLine.yLineStartYPos + _xLineNameLabelToXAxisLinePadding + height * 0.5-25;
+            CGFloat center_yPos = self.yAxisLine.yLineStartYPos + _xLineNameLabelToXAxisLinePadding + height * 0.5;
 
             //label的中心点
-            CGPoint label_center = CGPointMake(center_xPos, center_yPos);
+            CGPoint label_center = CGPointMake(center_xPos, center_yPos+leaveHeigh);
             CGRect rect = [self.xLineNameArray[i] stringWidthRectWithSize:CGSizeMake(width + _groupPadding * 0.5, height) font:_xLineNameFont];
             ZFLabel * label = [[ZFLabel alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
             label.text = self.xLineNameArray[i];
@@ -120,6 +121,17 @@
             label.font = _xLineNameFont;
             label.center = label_center;
             [self.xAxisLine addSubview:label];
+
+            
+//            TODO  添加x轴坐标   modify  add xMark_center
+
+            ZFLabel * xMark = [[ZFLabel alloc] initWithFrame:CGRectMake(0, 0, 2, 5)];
+            CGPoint xMark_center = CGPointMake(center_xPos, center_yPos+_xLineNameLabelToXAxisLinePadding+xMark.frame.size.height+leaveHeigh);
+            xMark.backgroundColor = ZFLightGray;
+            xMark.center = xMark_center;
+            [self.xAxisLine addSubview:xMark];
+
+            
         }
     }
     
@@ -183,10 +195,13 @@
  *  @return UIBezierPath
  */
 - (UIBezierPath *)drawYAxisLineSection:(NSInteger)i sectionLength:(CGFloat)sectionLength{
+//    TODO 无坐标轴   modify  分割线 i + 1 -> i
+    
+    
     UIBezierPath * bezier = [UIBezierPath bezierPath];
-    CGFloat yStartPos = self.yAxisLine.yLineStartYPos - (self.yAxisLine.yLineHeight - ZFAxisLineGapFromAxisLineMaxValueToArrow) / _yLineSectionCount * (i + 1);
-    [bezier moveToPoint:CGPointMake(self.yAxisLine.yLineStartXPos, yStartPos)];
-    [bezier addLineToPoint:CGPointMake(self.yAxisLine.yLineStartXPos + sectionLength, yStartPos)];
+    CGFloat yStartPos = self.yAxisLine.yLineStartYPos - (self.yAxisLine.yLineHeight - ZFAxisLineGapFromAxisLineMaxValueToArrow) / _yLineSectionCount * (i );
+    [bezier moveToPoint:CGPointMake(self.yAxisLine.yLineStartXPos, yStartPos+leaveHeigh)];
+    [bezier addLineToPoint:CGPointMake(self.yAxisLine.yLineStartXPos + sectionLength, yStartPos+leaveHeigh)];
     
     return bezier;
 }
@@ -285,8 +300,8 @@
     [self setXLineNameLabel];
     [self setYLineValueLabel];
     [self addUnitLabel];
-    
-    for (NSInteger i = 0; i < _yLineSectionCount; i++) {
+//   TODO 无坐标轴   modify  分割线 _yLineSectionCount  -> _yLineSectionCount+1
+    for (NSInteger i = 0; i < _yLineSectionCount+1; i++) {
         if (_isShowSeparate) {
             [self.layer addSublayer:[self yAxisLineSectionShapeLayer:i sectionLength:self.xLineWidth sectionColor:ZFLightGray]];
         }else{

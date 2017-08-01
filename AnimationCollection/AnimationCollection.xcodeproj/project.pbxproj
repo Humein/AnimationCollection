@@ -15,13 +15,16 @@
 		336D7D831E9F0D5700E82E43 /* AnimationCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7D821E9F0D5700E82E43 /* AnimationCollectionTests.m */; };
 		336D7D8E1E9F0D5700E82E43 /* AnimationCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7D8D1E9F0D5700E82E43 /* AnimationCollectionUITests.m */; };
 		336D7DA21E9F617F00E82E43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DA11E9F617F00E82E43 /* ViewController.m */; };
-		336D7DA51E9F618900E82E43 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DA41E9F618900E82E43 /* LineView.m */; };
 		336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DA81E9F61E600E82E43 /* PresentingAnimator.m */; };
 		336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */; };
 		336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */; };
-		337F223F1EAB239C00CF393D /* LabelProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F223E1EAB239C00CF393D /* LabelProgress.m */; };
-		337F22421EAB401F00CF393D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F22411EAB401F00CF393D /* UIView+Frame.m */; };
 		33A3882D1F0250FA00321D37 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A3882C1F0250FA00321D37 /* AnimationViewController.m */; };
+		33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C11F145D4D00628F21 /* LabelProgress.m */; };
+		33B8C1C91F145D4D00628F21 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C31F145D4D00628F21 /* LineView.m */; };
+		33B8C1CA1F145D4D00628F21 /* NumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C51F145D4D00628F21 /* NumberAnimation.m */; };
+		33B8C1CB1F145D4D00628F21 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C71F145D4D00628F21 /* UIView+Frame.m */; };
+		33B8C1CF1F146ECB00628F21 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1CE1F146ECB00628F21 /* BaseView.m */; };
+		33B8C1D21F146FD300628F21 /* CombobaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1D11F146FD300628F21 /* CombobaseView.m */; };
 		33C5BD8E1F0DDE5C0085C595 /* NSString+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6A1F0DDE5C0085C595 /* NSString+Zirkfied.m */; };
 		33C5BD8F1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6C1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.m */; };
 		33C5BD901F0DDE5C0085C595 /* UIColor+Zirkfied.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD6E1F0DDE5C0085C595 /* UIColor+Zirkfied.m */; };
@@ -38,7 +41,6 @@
 		33C5BD9B1F0DDE5C0085C595 /* ZFLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD8B1F0DDE5C0085C595 /* ZFLine.m */; };
 		33C5BD9C1F0DDE5C0085C595 /* ZFLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD8D1F0DDE5C0085C595 /* ZFLineChart.m */; };
 		33C5BD9F1F0E402D0085C595 /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C5BD9E1F0E402D0085C595 /* IndicatorView.m */; };
-		33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E570371EAA00CA00C84C19 /* NumberAnimation.m */; };
 		33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */; };
 		33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EB8CB81EFA68EA0035F12B /* PopViewController.m */; };
 		71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */; };
@@ -78,20 +80,26 @@
 		336D7D8F1E9F0D5700E82E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336D7DA01E9F617F00E82E43 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		336D7DA11E9F617F00E82E43 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		336D7DA31E9F618900E82E43 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
-		336D7DA41E9F618900E82E43 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 		336D7DA71E9F61E600E82E43 /* PresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingAnimator.h; sourceTree = "<group>"; };
 		336D7DA81E9F61E600E82E43 /* PresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingAnimator.m; sourceTree = "<group>"; };
 		336D7DAA1E9F62C400E82E43 /* DismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissingAnimator.h; sourceTree = "<group>"; };
 		336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
 		336D7DAD1E9F63FE00E82E43 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
-		337F223D1EAB239C00CF393D /* LabelProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelProgress.h; sourceTree = "<group>"; };
-		337F223E1EAB239C00CF393D /* LabelProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelProgress.m; sourceTree = "<group>"; };
-		337F22401EAB401F00CF393D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		337F22411EAB401F00CF393D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		33A3882B1F0250FA00321D37 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		33A3882C1F0250FA00321D37 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		33B8C1C01F145D4D00628F21 /* LabelProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelProgress.h; sourceTree = "<group>"; };
+		33B8C1C11F145D4D00628F21 /* LabelProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelProgress.m; sourceTree = "<group>"; };
+		33B8C1C21F145D4D00628F21 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
+		33B8C1C31F145D4D00628F21 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
+		33B8C1C41F145D4D00628F21 /* NumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberAnimation.h; sourceTree = "<group>"; };
+		33B8C1C51F145D4D00628F21 /* NumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberAnimation.m; sourceTree = "<group>"; };
+		33B8C1C61F145D4D00628F21 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		33B8C1C71F145D4D00628F21 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		33B8C1CD1F146ECB00628F21 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		33B8C1CE1F146ECB00628F21 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		33B8C1D01F146FD300628F21 /* CombobaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CombobaseView.h; sourceTree = "<group>"; };
+		33B8C1D11F146FD300628F21 /* CombobaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombobaseView.m; sourceTree = "<group>"; };
 		33C5BD691F0DDE5C0085C595 /* NSString+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Zirkfied.h"; sourceTree = "<group>"; };
 		33C5BD6A1F0DDE5C0085C595 /* NSString+Zirkfied.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Zirkfied.m"; sourceTree = "<group>"; };
 		33C5BD6B1F0DDE5C0085C595 /* UIBezierPath+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Zirkfied.h"; sourceTree = "<group>"; };
@@ -126,8 +134,6 @@
 		33C5BD8D1F0DDE5C0085C595 /* ZFLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFLineChart.m; sourceTree = "<group>"; };
 		33C5BD9D1F0E402D0085C595 /* IndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
 		33C5BD9E1F0E402D0085C595 /* IndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
-		33E570361EAA00CA00C84C19 /* NumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberAnimation.h; sourceTree = "<group>"; };
-		33E570371EAA00CA00C84C19 /* NumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberAnimation.m; sourceTree = "<group>"; };
 		33E570391EAA01F900C84C19 /* POPNumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPNumberAnimation.h; sourceTree = "<group>"; };
 		33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPNumberAnimation.m; sourceTree = "<group>"; };
 		33EB8CB71EFA68EA0035F12B /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
@@ -231,15 +237,9 @@
 		336D7D9E1E9F614200E82E43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				33B8C1CC1F145E1700628F21 /* ModuleView */,
+				33B8C1BF1F145D4D00628F21 /* DrawLine:NumPOP:Progress */,
 				33C5BD661F0DDE5C0085C595 /* Chart */,
-				336D7DA31E9F618900E82E43 /* LineView.h */,
-				336D7DA41E9F618900E82E43 /* LineView.m */,
-				33E570361EAA00CA00C84C19 /* NumberAnimation.h */,
-				33E570371EAA00CA00C84C19 /* NumberAnimation.m */,
-				337F223D1EAB239C00CF393D /* LabelProgress.h */,
-				337F223E1EAB239C00CF393D /* LabelProgress.m */,
-				337F22401EAB401F00CF393D /* UIView+Frame.h */,
-				337F22411EAB401F00CF393D /* UIView+Frame.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +270,32 @@
 				33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */,
 			);
 			path = TransitioningAnimastion;
+			sourceTree = "<group>";
+		};
+		33B8C1BF1F145D4D00628F21 /* DrawLine:NumPOP:Progress */ = {
+			isa = PBXGroup;
+			children = (
+				33B8C1C01F145D4D00628F21 /* LabelProgress.h */,
+				33B8C1C11F145D4D00628F21 /* LabelProgress.m */,
+				33B8C1C21F145D4D00628F21 /* LineView.h */,
+				33B8C1C31F145D4D00628F21 /* LineView.m */,
+				33B8C1C41F145D4D00628F21 /* NumberAnimation.h */,
+				33B8C1C51F145D4D00628F21 /* NumberAnimation.m */,
+				33B8C1C61F145D4D00628F21 /* UIView+Frame.h */,
+				33B8C1C71F145D4D00628F21 /* UIView+Frame.m */,
+			);
+			path = "DrawLine:NumPOP:Progress";
+			sourceTree = "<group>";
+		};
+		33B8C1CC1F145E1700628F21 /* ModuleView */ = {
+			isa = PBXGroup;
+			children = (
+				33B8C1CD1F146ECB00628F21 /* BaseView.h */,
+				33B8C1CE1F146ECB00628F21 /* BaseView.m */,
+				33B8C1D01F146FD300628F21 /* CombobaseView.h */,
+				33B8C1D11F146FD300628F21 /* CombobaseView.m */,
+			);
+			path = ModuleView;
 			sourceTree = "<group>";
 		};
 		33C5BD661F0DDE5C0085C595 /* Chart */ = {
@@ -578,29 +604,31 @@
 				33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */,
 				33C5BD9F1F0E402D0085C595 /* IndicatorView.m in Sources */,
 				33C5BD9A1F0DDE5C0085C595 /* ZFCircle.m in Sources */,
-				336D7DA51E9F618900E82E43 /* LineView.m in Sources */,
 				336D7DA21E9F617F00E82E43 /* ViewController.m in Sources */,
 				33C5BD9C1F0DDE5C0085C595 /* ZFLineChart.m in Sources */,
 				33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */,
 				336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */,
 				336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */,
-				337F223F1EAB239C00CF393D /* LabelProgress.m in Sources */,
 				33A3882D1F0250FA00321D37 /* AnimationViewController.m in Sources */,
+				33B8C1C91F145D4D00628F21 /* LineView.m in Sources */,
 				33C5BD941F0DDE5C0085C595 /* ZFXAxisLine.m in Sources */,
+				33B8C1CF1F146ECB00628F21 /* BaseView.m in Sources */,
 				33C5BD931F0DDE5C0085C595 /* ZFPopoverLabel.m in Sources */,
 				33C5BD911F0DDE5C0085C595 /* UIView+Zirkfied.m in Sources */,
 				33C5BD951F0DDE5C0085C595 /* ZFYAxisLine.m in Sources */,
 				33C5BD971F0DDE5C0085C595 /* ZFMethod.m in Sources */,
 				336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */,
-				33E570381EAA00CA00C84C19 /* NumberAnimation.m in Sources */,
 				33C5BD921F0DDE5C0085C595 /* ZFLabel.m in Sources */,
 				336D7D6D1E9F0D5700E82E43 /* AppDelegate.m in Sources */,
 				33C5BD9B1F0DDE5C0085C595 /* ZFLine.m in Sources */,
 				33C5BD961F0DDE5C0085C595 /* ZFConst.m in Sources */,
 				336D7D6A1E9F0D5700E82E43 /* main.m in Sources */,
+				33B8C1D21F146FD300628F21 /* CombobaseView.m in Sources */,
 				33C5BD981F0DDE5C0085C595 /* ZFGenericAxis.m in Sources */,
+				33B8C1CB1F145D4D00628F21 /* UIView+Frame.m in Sources */,
+				33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */,
+				33B8C1CA1F145D4D00628F21 /* NumberAnimation.m in Sources */,
 				33C5BD901F0DDE5C0085C595 /* UIColor+Zirkfied.m in Sources */,
-				337F22421EAB401F00CF393D /* UIView+Frame.m in Sources */,
 				33C5BD8E1F0DDE5C0085C595 /* NSString+Zirkfied.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

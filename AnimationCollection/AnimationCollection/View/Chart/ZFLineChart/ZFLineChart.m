@@ -133,6 +133,7 @@
                     ZFCircle * circle = [[ZFCircle alloc] initWithFrame:CGRectMake(0, 0, _radius * 2, _radius * 2)];
                     circle.lineIndex = lineIndex;
                     circle.circleIndex = circleIndex;
+                    circle.circleY = center_yPos;
                     circle.center = CGPointMake(center_xPos, center_yPos);
                     circle.isOverrun = isOverrun;
                     circle.circleColor = isOverrun ? _overMaxValueCircleColor : _colorArray[lineIndex];
@@ -144,8 +145,8 @@
                     [circle strokePath];
                     [self.genericAxis addSubview:circle];
                     [subArray addObject:circle];
-                    
-                    [circle addTarget:self action:@selector(circleAction:) forControlEvents:UIControlEventTouchUpInside];
+//                  modify remove circle action
+//                    [circle addTarget:self action:@selector(circleAction:) forControlEvents:UIControlEventTouchUpInside];
                 }
                 [self.circleArray addObject:subArray];
             }
@@ -214,6 +215,7 @@
             ZFCircle * preCirque = circleArray[index-1];
             end_YPos = preCirque.center.y - circle.center.y;
         }
+        
         
         //根据end_YPos，设置popoverLabel的上下位置
         if (end_YPos < 0) {
@@ -500,7 +502,7 @@
     [self.genericAxis bringSectionToFront];
     [self bringSubviewToFront:self.topicLabel];
     
-
+  
     [self addIndicatorView];
 
     
@@ -508,7 +510,7 @@
 }
 #pragma marj - 指示器
 -(void)addIndicatorView{
-    IndicatorView *indicator =[[IndicatorView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-150, 20, 150,150)];
+    IndicatorView *indicator =[[IndicatorView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 0, 250,250)];
 //    indicator.backgroundColor = [UIColor grayColor];
     for (int i = 0; i<_circleArray.count; i++) {
         

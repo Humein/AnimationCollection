@@ -29,8 +29,10 @@ CGFloat const TOPIC_HEIGHT = 30.f;
 
 CGFloat const ZFPerigon = 360.f;
 
-NSString *const PointsCircle = @"LineChartPointStyleCircle";
-NSString *const PointsSquare = @"LineChartPointStyleSquare";
+NSString *const PointsCircle = @"模考得分";
+NSString *const PointsSquare = @"全站得分";
+
+
 @implementation ZFConst
 
 @end

@@ -30,7 +30,7 @@
     CAShapeLayer *LineLayer = [CAShapeLayer layer];
     LineLayer.fillColor = colorName.CGColor;
     LineLayer.strokeColor = colorName.CGColor;
-    LineLayer.lineWidth = 2;
+    LineLayer.lineWidth = 1;
     LineLayer.lineCap = kCALineCapRound;
     LineLayer.lineJoin = kCALineJoinRound;
     LineLayer.path = path.CGPath;

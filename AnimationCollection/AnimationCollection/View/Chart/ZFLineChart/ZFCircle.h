@@ -34,7 +34,8 @@
 @property (nonatomic, assign) NSInteger circleIndex;
 /** 记录数据是否超出上限(默认为NO) */
 @property (nonatomic, assign) BOOL isOverrun;
-
+/** 记录数据Y大小 */
+@property (nonatomic, assign) CGFloat circleY;
 
 #pragma mark - public method
 

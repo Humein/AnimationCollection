@@ -32,12 +32,17 @@
 #import "AnimationViewController.h"
 #import <POP.h>
 #import "ZFChart.h"
+#import "CombobaseView.h"
 @interface AnimationViewController ()<ZFGenericChartDataSource, ZFLineChartDelegate>
 @property(nonatomic,strong)UIView *BGView;
 @property(nonatomic,strong)UIView *POPBasicView;
 @property(nonatomic,strong)UIView *POPSpringView;
 @property(nonatomic,strong)UIView *POPDecayView;
 @property(nonatomic,strong)UILabel *NUMLabel;
+
+@property(nonatomic,strong)UIButton *imageBtn;
+@property(nonatomic,strong)UIView *btnBackView;
+
 @property (nonatomic, strong) ZFLineChart * lineChart;
 @end
 
@@ -108,29 +113,37 @@
         
 //  initLineChartView
         {
-            self.lineChart = [[ZFLineChart alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-264)];
+            self.lineChart = [[ZFLineChart alloc] initWithFrame:CGRectMake(20,40, SCREEN_WIDTH-40, 300)];
             self.lineChart.dataSource = self;
             self.lineChart.delegate = self;
-            self.lineChart.topicLabel.text = @"国考";
+//            self.lineChart.topicLabel.text = @"国考";
             self.lineChart.unit = @"分数";
             self.lineChart.topicLabel.textColor = ZFBlack;
             self.lineChart.isShowSeparate = YES;
-            //    self.lineChart.isAnimated = NO;
             self.lineChart.isResetAxisLineMinValue = YES;
             self.lineChart.isResetAxisLineMaxValue = YES;
-            //    self.lineChart.isShowAxisLineValue = NO;
-            //    self.lineChart.isShadowForValueLabel = NO;
             self.lineChart.isShadow = NO;
             self.lineChart.isShowAxisArrows = NO;
-            //    self.lineChart.valueLabelPattern = kPopoverLabelPatternBlank;
-            //    self.lineChart.valueCenterToCircleCenterPadding = 0;
-            //    self.lineChart.separateColor = ZFYellow;
-            self.lineChart.unitColor = ZFBlack;
-            self.lineChart.backgroundColor = ZFWhite;
-            self.lineChart.axisColor = ZFBlack;
-            self.lineChart.axisLineNameColor = ZFBlack;
-            self.lineChart.axisLineValueColor = ZFBlack;
-            self.lineChart.xLineNameLabelToXAxisLinePadding = 40;
+
+//          self.lineChart.isShowAxisLineValue = NO;
+//          self.lineChart.isShadowForValueLabel = NO;
+//            self.lineChart.valueLabelPattern = kPopoverLabelPatternBlank;
+            self.lineChart.valueCenterToCircleCenterPadding = 15;
+//            self.lineChart.separateColor = [UIColor grayColor];
+//            self.lineChart.unitColor = ZFBlack;
+//            self.lineChart.backgroundColor = ZFWhite;
+            
+            
+            self.lineChart.axisColor = [UIColor clearColor];
+            
+//            self.lineChart.axisLineNameColor = ZFBlack;
+//            self.lineChart.axisLineValueColor = ZFBlack;
+            self.lineChart.xLineNameLabelToXAxisLinePadding = -20;
+            
+            
+         [self setBorderWithView:self.lineChart top:YES left:YES bottom:YES right:YES borderColor:[UIColor redColor] borderWidth:1];
+            
+            
             
             [_BGView addSubview:self.lineChart];
             
@@ -155,11 +168,45 @@
     // Do any additional setup after loading the view.
     self.title = @"Animation";
     self.view.backgroundColor = [UIColor whiteColor];
-    UILabel *labelTem = [[UILabel alloc]initWithFrame:CGRectMake(100, 564, 64, 64)];
-    labelTem.backgroundColor = [UIColor redColor];
-    labelTem.text = @"你看我";
-    [self.view addSubview:labelTem];
 
+
+    CombobaseView *comboView = [[CombobaseView alloc]initWithFrame:CGRectMake(20, 84, 264, 264) itemCount:3 itemWidth:41 andModel:nil withCallBack:^(NSInteger tag) {
+        
+        switch (tag) {
+            case 0:
+                [self addBasicView];
+                break;
+            case 1:
+                [self addSpringView];
+                break;
+            case 2:
+                [self addDecayView];
+                break;
+            case 3:
+                [self POPAnimatableProperty];
+                break;
+            case 4:
+                
+                    {
+                        if (_BGView) {
+                            [self.BGView removeFromSuperview];
+                            self.BGView = nil;
+                        }else{
+                            [self.view addSubview:self.BGView];
+                            
+                        }
+                    }
+                break;
+                case 5:
+                [self addViewCenterAni];
+                break;
+            default:
+                break;
+        }
+        
+    }];
+    
+    [self.view addSubview:comboView];
     
 }
 
@@ -167,19 +214,19 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     //POPBasicAnimation
-    //    [self addBasicView];
+//        [self addBasicView];
     
     
     
     
     
     //POPaddSpringAnimation
-    //    [self addSpringView];
+//        [self addSpringView];
     
     
     
     // DecayAnimation
-    //    [self addDecayView];
+//        [self addDecayView];
     
     //POPAnimatableProperty
     //    [self POPAnimatableProperty];
@@ -188,16 +235,16 @@
     
     
     
-    
-    {
-        if (_BGView) {
-            [self.BGView removeFromSuperview];
-            self.BGView = nil;
-        }else{
-            [self.view addSubview:self.BGView];
-            
-        }
-    }
+//    
+//    {
+//        if (_BGView) {
+//            [self.BGView removeFromSuperview];
+//            self.BGView = nil;
+//        }else{
+//            [self.view addSubview:self.BGView];
+//            
+//        }
+//    }
     
     
     
@@ -210,7 +257,7 @@
     
 
     _POPBasicView = [[UIView alloc]initWithFrame:CGRectMake(100, 164, 64, 64)];
-    _POPBasicView.backgroundColor = [UIColor redColor];
+    _POPBasicView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:_POPBasicView];
     
     POPBasicAnimation *animPosition= [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
@@ -266,9 +313,21 @@
     POPDecayAnimation *anDecay = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionX];
     anDecay.velocity = @(500);
     anDecay.beginTime = CACurrentMediaTime() + 1.0f;
-   //deceleration:0.998  //衰减系数(越小则衰减得越快)
-    anDecay.deceleration = 0.1;
     [_POPDecayView pop_addAnimation:anDecay forKey:@"position"];
+    
+    
+//   
+//    UILabel *decayNumaber =[[UILabel alloc]initWithFrame:CGRectMake(50, 64, 64, 64)];
+//    
+//    decayNumaber.textAlignment = NSTextAlignmentCenter;
+//    decayNumaber.backgroundColor = [UIColor grayColor];
+//    decayNumaber.textColor = [UIColor redColor];
+//    
+//    decayNumaber.text = @"0";
+//    [self.view addSubview:decayNumaber];
+//    
+//    
+//    decayNumaber.text = [NSString stringWithFormat:@"%f",_POPDecayView.bounds.origin.x];
 }
 
 -(void)POPAnimatableProperty{
@@ -309,22 +368,67 @@
     [self.NUMLabel pop_addAnimation:anBasic forKey:@"countdown"];
 }
 
+
+-(void)addViewCenterAni{
+    
+    {
+        if (!_imageBtn) {
+
+            _imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 400, 72, 72)];
+            [_imageBtn setImage:[UIImage imageNamed:@"HomeWd"] forState:UIControlStateNormal];
+            [_imageBtn setImage:[UIImage imageNamed:@"HomeWd"] forState:UIControlStateHighlighted];
+            [_imageBtn addTarget:self action:@selector(addViewSizeAni) forControlEvents:UIControlEventTouchDown];
+
+            _btnBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+            _btnBackView.center = _imageBtn.center;
+            _btnBackView.backgroundColor = [UIColor greenColor];
+        }
+        [self.view addSubview:self.btnBackView];
+        [self.view addSubview:self.imageBtn];
+    }
+    
+
+
+}
+
+-(void)btnAction{
+    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+    scaleAnimation.fromValue   = [NSValue valueWithCGPoint:CGPointMake(-SCREEN_WIDTH*0.5, CGRectGetMaxY(_imageBtn.frame)-30)];
+    scaleAnimation.toValue             = [NSValue valueWithCGPoint:CGPointMake(SCREEN_WIDTH*0.5,CGRectGetMaxY(_imageBtn.frame)-30)];
+    scaleAnimation.springBounciness    = 10.f;
+    [self.btnBackView pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+}
+
+
+-(void)addViewSizeAni{
+    POPBasicAnimation *cornerAnim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerCornerRadius];
+    cornerAnim.toValue = @4.f;
+    cornerAnim.duration= 0.5f;
+//    [self.layer pop_addAnimation:cornerAnim forKey:@"BarReadyStyleCornerAnim"];
+    [self.btnBackView.layer removeAllAnimations];
+
+    
+    POPBasicAnimation *sizeAnim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerSize];
+    sizeAnim.fromValue = [NSValue valueWithCGSize:CGSizeMake(0, 0)];
+    sizeAnim.toValue = [NSValue valueWithCGSize:CGSizeMake(10, 10)];
+    sizeAnim.duration = 0.5f;
+    [self.btnBackView.layer pop_addAnimation:sizeAnim forKey:@"BarReadyStyleSizeAnim"];
+}
+
 #pragma mark -ChartView
 
 #pragma mark - ZFGenericChartDataSource
 
 - (NSArray *)valueArrayInGenericChart:(ZFGenericChart *)chart{
     return @[
-             @[@"30", @"49", @"38", @"16", @"45"],
-             @[@"26", @"30", @"89", @"40", @"25", @"25"]
-             //             @[@"-52", @"300", @"490", @"380", @"167", @"451"],
-             //             @[@"380", @"200", @"326", @"240", @"-258", @"137"],
-             //             @[@"256", @"300", @"-89", @"430", @"256", @"256"]
+             @[@"66.3",],
+             @[@"66.4",]
+
              ];
 }
 
 - (NSArray *)nameArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月"];
+    return @[@"7月20日", @"7月20日"];
 }
 
 - (NSArray *)colorArrayInGenericChart:(ZFGenericChart *)chart{
@@ -347,13 +451,13 @@
 }
 
 - (NSUInteger)axisLineSectionCountInGenericChart:(ZFGenericChart *)chart{
-    return 10;
+    return 5;
 }
 
 #pragma mark - ZFLineChartDelegate
 
 - (CGFloat)groupWidthInLineChart:(ZFLineChart *)lineChart{
-    return 25.f;
+    return 50.f;
 }
 
 - (CGFloat)paddingForGroupsInLineChart:(ZFLineChart *)lineChart{
@@ -362,12 +466,12 @@
 
 - (CGFloat)circleRadiusInLineChart:(ZFLineChart *)lineChart{
     
-    return 5.f;
+    return 3.f;
 }
 
 - (CGFloat)lineWidthInLineChart:(ZFLineChart *)lineChart{
     
-    return 2.f;
+    return 1.f;
 }
 
 //- (NSArray *)valuePositionInLineChart:(ZFLineChart *)lineChart{
@@ -375,29 +479,46 @@
 //}
 
 - (void)lineChart:(ZFLineChart *)lineChart didSelectCircleAtLineIndex:(NSInteger)lineIndex circleIndex:(NSInteger)circleIndex circle:(ZFCircle *)circle popoverLabel:(ZFPopoverLabel *)popoverLabel{
-    NSLog(@"第%ld条线========第%ld个",(long)lineIndex,(long)circleIndex);
-    
-    //可在此处进行circle被点击后的自身部分属性设置,可修改的属性查看ZFCircle.h
-    //    circle.circleColor = ZFYellow;
-    //    circle.isAnimated = YES;
+    circle.isAnimated = YES;
     //    circle.opacity = 0.5;
-    //    [circle strokePath];
     
-    //可将isShowAxisLineValue设置为NO，然后执行下句代码进行点击才显示数值
-    //    popoverLabel.hidden = NO;
+    [circle strokePath];
 }
 
 - (void)lineChart:(ZFLineChart *)lineChart didSelectPopoverLabelAtLineIndex:(NSInteger)lineIndex circleIndex:(NSInteger)circleIndex popoverLabel:(ZFPopoverLabel *)popoverLabel{
-    NSLog(@"第%ld条线========第%ld个",(long)lineIndex,(long)circleIndex);
-    
-    //可在此处进行popoverLabel被点击后的自身部分属性设置
-    //    popoverLabel.textColor = ZFGold;
-    //    [popoverLabel strokePath];
+
 }
 
 
 
 
+- (void)setBorderWithView:(UIView *)view top:(BOOL)top left:(BOOL)left bottom:(BOOL)bottom right:(BOOL)right borderColor:(UIColor *)color borderWidth:(CGFloat)width
+{
+    if (top) {
+        CALayer *layer = [CALayer layer];
+        layer.frame = CGRectMake(0, 0, view.frame.size.width, width);
+        layer.backgroundColor = color.CGColor;
+        [view.layer addSublayer:layer];
+    }
+    if (left) {
+        CALayer *layer = [CALayer layer];
+        layer.frame = CGRectMake(0, 0, width, view.frame.size.height);
+        layer.backgroundColor = color.CGColor;
+        [view.layer addSublayer:layer];
+    }
+    if (bottom) {
+        CALayer *layer = [CALayer layer];
+        layer.frame = CGRectMake(0, view.frame.size.height - width, view.frame.size.width, width);
+        layer.backgroundColor = color.CGColor;
+        [view.layer addSublayer:layer];
+    }
+    if (right) {
+        CALayer *layer = [CALayer layer];
+        layer.frame = CGRectMake(view.frame.size.width - width, 0, width, view.frame.size.height);
+        layer.backgroundColor = color.CGColor;
+        [view.layer addSublayer:layer];
+    }
+}
 
 
 
