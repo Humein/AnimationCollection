@@ -34,10 +34,18 @@
     
     self.backgroundColor = [UIColor grayColor];
     
-    _xAxisSpacing = 10;
+    _xAxisSpacing = 13;
     _yAxisSpacing = 0;
     
-    _pointYArray = @[@(1), @(2), @(1), @(2),@(1), @(2), @(1), @(2), @(1), @(2), @(1),@(2)];
+    NSString *str = @"你好 我想和你你好 我想和你你好 我想和你";
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0 ; i<str.length; i++) {
+        [arr addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+    
+    _pointYArray = arr.mutableCopy;
+    
+//    _pointYArray = @[@(1), @(20), @(1), @(2),@(1), @(2), @(1), @(2), @(1), @(2), @(1),@(2)];
     _pointsArray = @[].mutableCopy;
     
 }
