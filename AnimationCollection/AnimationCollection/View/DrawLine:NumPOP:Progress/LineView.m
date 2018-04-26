@@ -6,6 +6,8 @@
 //  Copyright © 2017年 xinxin. All rights reserved.
 //
 
+
+
 #import "LineView.h"
 #import <POP/POP.h>
 #import <SDAutoLayout/SDAutoLayout.h>
@@ -75,14 +77,34 @@
     
     
     
+    //设置画笔颜色 曲线
+    [[UIColor redColor]set];
+    
+    //
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    path.lineWidth =2;
     
     
+    [path moveToPoint:CGPointMake(0, 310)];
+    [path addCurveToPoint:CGPointMake(370, 310) controlPoint1:CGPointMake(30, 210) controlPoint2:CGPointMake(150, 410)];
+    
+    [path stroke];
+    
+    
+//    self.circleLayer.path = path.CGPath;
+    
+    
+
     // 1   创建指定位置圆角的矩形路径
     self.circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
                                                       cornerRadius:radius].CGPath;
     self.circleBGLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect
                                                        cornerRadius:radius].CGPath;
    
+    
+    
+    
+    
 
 //    // 2  直线
 //    
@@ -94,7 +116,6 @@
 //    [path addLineToPoint:CGPointMake(frame.size.width,0)];
 //    self.circleLayer.path = path.CGPath;
 //    
-    
 
     
     

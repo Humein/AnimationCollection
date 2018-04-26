@@ -18,6 +18,8 @@
 		336D7DA91E9F61E600E82E43 /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DA81E9F61E600E82E43 /* PresentingAnimator.m */; };
 		336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */; };
 		336D7DAF1E9F63FE00E82E43 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */; };
+		33738EEF20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33738EEE20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.m */; };
+		33738EF220919AE500AD7C9B /* UIBezierWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33738EF120919AE500AD7C9B /* UIBezierWaveView.m */; };
 		33A3882D1F0250FA00321D37 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A3882C1F0250FA00321D37 /* AnimationViewController.m */; };
 		33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C11F145D4D00628F21 /* LabelProgress.m */; };
 		33B8C1C91F145D4D00628F21 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1C31F145D4D00628F21 /* LineView.m */; };
@@ -86,6 +88,10 @@
 		336D7DAB1E9F62C400E82E43 /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
 		336D7DAD1E9F63FE00E82E43 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		33738EED20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBezierPathAndCAShapeLayerView.h; sourceTree = "<group>"; };
+		33738EEE20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierPathAndCAShapeLayerView.m; sourceTree = "<group>"; };
+		33738EF020919AE500AD7C9B /* UIBezierWaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBezierWaveView.h; sourceTree = "<group>"; };
+		33738EF120919AE500AD7C9B /* UIBezierWaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierWaveView.m; sourceTree = "<group>"; };
 		33A3882B1F0250FA00321D37 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		33A3882C1F0250FA00321D37 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		33B8C1C01F145D4D00628F21 /* LabelProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelProgress.h; sourceTree = "<group>"; };
@@ -279,6 +285,10 @@
 				33B8C1C11F145D4D00628F21 /* LabelProgress.m */,
 				33B8C1C21F145D4D00628F21 /* LineView.h */,
 				33B8C1C31F145D4D00628F21 /* LineView.m */,
+				33738EED20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.h */,
+				33738EEE20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.m */,
+				33738EF020919AE500AD7C9B /* UIBezierWaveView.h */,
+				33738EF120919AE500AD7C9B /* UIBezierWaveView.m */,
 				33B8C1C41F145D4D00628F21 /* NumberAnimation.h */,
 				33B8C1C51F145D4D00628F21 /* NumberAnimation.m */,
 				33B8C1C61F145D4D00628F21 /* UIView+Frame.h */,
@@ -482,7 +492,7 @@
 				TargetAttributes = {
 					336D7D641E9F0D5700E82E43 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = MR4GTF2765;
+						DevelopmentTeam = B4Q6JBQZP4;
 						ProvisioningStyle = Automatic;
 					};
 					336D7D7D1E9F0D5700E82E43 = {
@@ -623,8 +633,10 @@
 				33C5BD9B1F0DDE5C0085C595 /* ZFLine.m in Sources */,
 				33C5BD961F0DDE5C0085C595 /* ZFConst.m in Sources */,
 				336D7D6A1E9F0D5700E82E43 /* main.m in Sources */,
+				33738EEF20917B9C00AD7C9B /* UIBezierPathAndCAShapeLayerView.m in Sources */,
 				33B8C1D21F146FD300628F21 /* CombobaseView.m in Sources */,
 				33C5BD981F0DDE5C0085C595 /* ZFGenericAxis.m in Sources */,
+				33738EF220919AE500AD7C9B /* UIBezierWaveView.m in Sources */,
 				33B8C1CB1F145D4D00628F21 /* UIView+Frame.m in Sources */,
 				33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */,
 				33B8C1CA1F145D4D00628F21 /* NumberAnimation.m in Sources */,
@@ -781,7 +793,7 @@
 			baseConfigurationReference = 6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MR4GTF2765;
+				DEVELOPMENT_TEAM = B4Q6JBQZP4;
 				INFOPLIST_FILE = AnimationCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xinxin.com.AnimationCollection;
@@ -794,7 +806,7 @@
 			baseConfigurationReference = 637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MR4GTF2765;
+				DEVELOPMENT_TEAM = B4Q6JBQZP4;
 				INFOPLIST_FILE = AnimationCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xinxin.com.AnimationCollection;

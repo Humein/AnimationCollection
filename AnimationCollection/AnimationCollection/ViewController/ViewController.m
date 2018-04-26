@@ -16,6 +16,8 @@
 #import "PopViewController.h"
 #import "AnimationViewController.h"
 #import <POP/POP.h>
+#import "UIBezierPathAndCAShapeLayerView.h"
+#import "UIBezierWaveView.h"
 @interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate>
 {
     CGFloat _i;
@@ -48,10 +50,11 @@
     [self addChangeProgressButtonAction];
     [self addModalButtonAction];
     [self POPNumberAnimation];
+    [self underLineDraw];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self popView];
+//    [self popView];
 }
 
 -(void)popView{
@@ -168,6 +171,14 @@
     .widthIs(frame.size.width)
     .heightIs(frame.size.height);
     
+}
+
+-(void)underLineDraw{
+
+    UIBezierWaveView *BS = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 264, 200, 60)];
+    [self.view addSubview:BS];
+    
+
 }
 
 #pragma mark -Action
