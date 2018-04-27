@@ -18,7 +18,8 @@
 #import <POP/POP.h>
 #import "UIBezierPathAndCAShapeLayerView.h"
 #import "UIBezierWaveView.h"
-@interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate>
+#import "RadarChartViewController.h"
+@interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate,PopViewControllerDelegate>
 {
     CGFloat _i;
 }
@@ -237,6 +238,7 @@
     self.itemPopVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
     // 设置代理
     self.itemPopVC.popoverPresentationController.delegate = self;
+    self.itemPopVC.PopViewDelegate = self;
     [self presentViewController:self.itemPopVC animated:YES completion:nil];
   
 
@@ -253,7 +255,17 @@
     return YES;   //点击蒙版popover消失， 默认YES
 }
 
-
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    RadarChartViewController *radarChartView = [RadarChartViewController new];
+    switch (indexPath.row) {
+        case 0:
+            [self.navigationController pushViewController:radarChartView animated:YES];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 
 -(void)clickNumber:(UITapGestureRecognizer *)gestureRecognizer{

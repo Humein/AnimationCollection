@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol PopViewControllerDelegate <NSObject>
+@required
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+@optional
 
+@end
 @interface PopViewController : UIViewController
+@property (nonatomic, weak) id<PopViewControllerDelegate> PopViewDelegate;
 
 @end

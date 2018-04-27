@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     //弹出窗内容
-    self.addArray = [[NSMutableArray alloc] initWithObjects:@"扫一扫",@"加好友", @"创建讨论组",@"发送到电脑", @"面对面快传",@"收钱", nil];
+    self.addArray = [[NSMutableArray alloc] initWithObjects:@"RadarChart",@"加好友", @"创建讨论组",@"发送到电脑", @"面对面快传",@"收钱", nil];
     
     [self loadTableView];
 }
@@ -52,6 +52,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"%ld",(long)indexPath.row);
+    if ([self.PopViewDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
+        [self.PopViewDelegate didSelectRowAtIndexPath:indexPath];
+    }
+
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark 重写 preferredContentSize, 返回 popover 的大小
