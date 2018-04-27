@@ -30,7 +30,7 @@ CGFloat const TOPIC_HEIGHT = 30.f;
 CGFloat const ZFPerigon = 360.f;
 
 NSString *const PointsCircle = @"模考得分";
-NSString *const PointsSquare = @"全站得分";
+NSString *const PointsSquare = @"全站平均分";
 
 
 @implementation ZFConst

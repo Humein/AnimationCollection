@@ -13,7 +13,9 @@
 #import "NSString+Zirkfied.h"
 #import "ZFMethod.h"
 #import "IndicatorView.h"
+#import "UIView+SDAutoLayout.h"
 @interface ZFLineChart()
+
 
 /** 通用坐标轴图表 */
 @property (nonatomic, strong) ZFGenericAxis * genericAxis;
@@ -427,7 +429,6 @@
         if ([self.dataSource respondsToSelector:@selector(axisLineMaxValueInGenericChart:)]) {
             self.genericAxis.yLineMaxValue = [self.dataSource axisLineMaxValueInGenericChart:self];
         }else{
-            NSLog(@"请返回一个最大值");
             return;
         }
     }else{
@@ -437,7 +438,6 @@
             if ([self.dataSource respondsToSelector:@selector(axisLineMaxValueInGenericChart:)]) {
                 self.genericAxis.yLineMaxValue = [self.dataSource axisLineMaxValueInGenericChart:self];
             }else{
-                NSLog(@"当前所有数据的最大值为0, 请返回一个固定最大值, 否则没法绘画图表");
                 return;
             }
         }
@@ -495,30 +495,220 @@
     [self.genericAxis strokePath];
     [self drawCircle];
     [self drawLine];
-    [self setValueLabelOnChart];
+//    [self setValueLabelOnChart];
+
+
+    
+
+}
+//-(void)layoutIfNeeded{
+//    
+//}
+-(void)layoutSubviews{
+//TODO popLabel
+    
+    
+    if (self.circleArray.count>2) {
+
+        NSCAssert(self.circleArray.count<=2, @"仅支持两数组");
+        return;
+    }
+   
+    #warning -  同 X 轴坐标 上下， 仅支持 2 个区县
+   
+    NSArray *n = self.genericAxis.xLineValueArray[0];
+    NSArray *f =  self.genericAxis.xLineValueArray[1];
+
+    for (NSInteger i = 0; i < self.circleArray.count; i++) {
+        NSMutableArray * subArray = self.circleArray[i];
+        for (NSInteger j = 0; j < subArray.count; j++) {
+            if (i == 0 ) {
+                if ([n[j] intValue] == 0) {
+                      [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+                }else{
+                    
+                    if ([f[j] floatValue]>[n[j] floatValue]) {
+                        [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+                    }else{
+                        
+                        [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+
+                    }
+                }
+
+     
+
+                
+            }
+            
+            
+            if (i == 1) {
+
+                if ([f[j] intValue] == 0) {
+                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+                }else{
+                    if ([f[j] floatValue]<[n[j] floatValue]) {
+                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+                    }else{
+                        [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+
+
+                    }
+                }
+
+                
+            }
+
+        }
+    }
+
     
     [self bringCircleToFront];
     [self.genericAxis bringSubviewToFront:self.genericAxis.yAxisLine];
     [self.genericAxis bringSectionToFront];
     [self bringSubviewToFront:self.topicLabel];
     
-  
     [self addIndicatorView];
 
     
-
+//
+//
+//    NSMutableArray *subArray1 = [NSMutableArray array];
+//    NSMutableArray *subArray2 = [NSMutableArray array];
+//    
+//    
+//    
+//    NSMutableArray *allArray = [NSMutableArray array];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        for (NSInteger i = 0; i < self.circleArray.count; i++) {
+//            NSMutableArray * subArray = self.circleArray[i];
+//            for (NSInteger j = 0; j < subArray.count; j++) {
+//                ZFCircle *circle = subArray[j];
+//                NSMutableArray *Array = [NSMutableArray array];
+//                [Array addObject:[NSString stringWithFormat:@"%f",circle.circleY]];
+//                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//                [dic setObject:[NSString stringWithFormat:@"%f",circle.circleY] forKey:[NSString stringWithFormat:@"%ld",(long)j]];
+//                
+//                [allArray addObject:dic];
+//                
+//                if (j==0) {
+//                    [subArray1 addObject:[NSString stringWithFormat:@"%f",circle.circleY]];
+//                    
+//                }else if (j==1){
+//                    [subArray2 addObject:[NSString stringWithFormat:@"%f",circle.circleY]];
+//                }
+//
+//            }
+//        }
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            {
+//                
+//                for (NSMutableDictionary *dic in allArray) {
+//                   
+//                    
+//                }
+//                
+//                
+//                for (NSInteger i = 0; i < self.circleArray.count; i++) {
+//                    NSMutableArray * subArray = self.circleArray[i];
+//                    for (NSInteger j = 0; j < subArray.count; j++) {
+//                        
+//                        DLog(@"i======%ld,j=====%ld",(long)
+//                             i,(long)j);
+//                        
+//
+//                        
+//                        
+//                        
+//                        
+//                        if (j == 0 ) {
+//                            
+//                            if (i == 0) {
+//
+//                                
+//                                if ([subArray1[1] floatValue]>[subArray1[0] floatValue]) {
+//                                 [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+//                                }else{
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+//                                }
+//                                
+//                                
+//                                
+//                            }
+//                            
+//                            if (i == 1) {
+//                                if ([subArray1[0] floatValue]>[subArray1[1] floatValue]) {
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+//                                }else{
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+//                                }
+//                                
+//                            }
+//                        }
+//                        
+//                        if (j == 1) {
+//                            if (i == 0) {
+//                                if ([subArray2[1] floatValue]>[subArray2[0] floatValue]) {
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+//                                }else{
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+//                                }
+//                                
+//                            }
+//                            
+//                            if (i == 1) {
+//                                if ([subArray2[0] floatValue]>[subArray2[1] floatValue]) {
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnTop];
+//                                }else{
+//                                    [self addValueLabel:subArray index:j colorIndex:i valueArray:self.genericAxis.xLineValueArray[i] valuePosition:kChartValuePositionOnBelow];
+//                                }
+//                                
+//                            }
+//                        }
+//                    }
+//                }
+//                
+//
+//                
+//                
+//            }
+//            
+//        });
+//        
+//    });
+//
+    
+    
 }
+//-(void)updateLayout{
+//
+//}
 #pragma marj - 指示器
 -(void)addIndicatorView{
-    IndicatorView *indicator =[[IndicatorView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 0, 250,250)];
+    if (!_indicator) {
+
+        _indicator =[[IndicatorView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width * 0.5, -12, 100,50)];
+
+
+    }
+    
+    
 //    indicator.backgroundColor = [UIColor grayColor];
     for (int i = 0; i<_circleArray.count; i++) {
         
-        [indicator addIndicatorView:_pointsStyle[i] withPointsStyle:_pointsStyle[i] withColorName:_colorArray[i] andIndex:i];
+        [_indicator addIndicatorView:_pointsStyle[i] withPointsStyle:_pointsStyle[i] withColorName:_colorArray[i] andIndex:i];
         
-        [self addSubview:indicator];
+        [self addSubview:_indicator];
     }
     
+//    
+//    indicator.sd_layout
+//    .rightSpaceToView(self,15)
+//    .topSpaceToView(self,-10)
+//    .widthIs(50)
+//    .heightIs(50);
 }
 #pragma mark - 把圆放到最前面
 

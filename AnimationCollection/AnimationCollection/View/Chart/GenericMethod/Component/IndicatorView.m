@@ -23,9 +23,15 @@
 
 //
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0, 30*(index+1))];
-    [path addLineToPoint:CGPointMake(50,30*(index+1))];
+    int i =  80 * index;
+    [path moveToPoint:CGPointMake(i ,37-10)];
+    if (i) {
+        [path addLineToPoint:CGPointMake(70*(index+1),37-10)];
+    }else{
+        [path addLineToPoint:CGPointMake(50*(index+1),37-10)];
 
+    }
+    
     
     CAShapeLayer *LineLayer = [CAShapeLayer layer];
     LineLayer.fillColor = colorName.CGColor;
@@ -39,7 +45,8 @@
     
 //    
     
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 30*(index+1)+7, 120, 12)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(80*(index), 37, 80, 12)];
+//    label.backgroundColor = colorName;
     label.font = [UIFont systemFontOfSize:12];
     label.textColor = colorName;
     label.text = pointsStyle;
@@ -49,11 +56,11 @@
     UIBezierPath * bezierView;
     
     if ([pointsStyle isEqualToString:PointsCircle]) {
-         bezierView = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(20, 30*(index+1)-5, 10, 10)];
+         bezierView = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(20, 37-15, 10, 10)];
 
         
     }else if([pointsStyle isEqualToString:PointsSquare]){
-         bezierView = [UIBezierPath bezierPathWithRect:CGRectMake(20, 30*(index+1)-5, 10, 10)];
+         bezierView = [UIBezierPath bezierPathWithRect:CGRectMake(52*(index+1), 37-15, 10, 10)];
 
     }
 

@@ -12,8 +12,9 @@
 #import "NSString+Zirkfied.h"
 #import "ZFColor.h"
 //modify x 轴下移
-CGFloat const leaveHeigh = 30.f;
-@interface ZFGenericAxis()<UIScrollViewDelegate>
+CGFloat const leaveHeigh = 0.f;
+@interface ZFGenericAxis()<UIScrollViewDelegate>{
+}
 
 /** 动画时间 */
 @property (nonatomic, assign) CGFloat animationDuration;
@@ -75,6 +76,7 @@ CGFloat const leaveHeigh = 30.f;
     self.yAxisLine = [[ZFYAxisLine alloc] initWithFrame:CGRectMake(0, leaveHeigh, ZFAxisLineStartXPos, self.bounds.size.height-leaveHeigh) direction:kAxisDirectionVertical];
     self.yAxisLine.backgroundColor = _axisLineBackgroundColor;
     [self addSubview:self.yAxisLine];
+    
 }
 
 #pragma mark - y轴单位Label
@@ -125,9 +127,9 @@ CGFloat const leaveHeigh = 30.f;
             
 //            TODO  添加x轴坐标   modify  add xMark_center
 
-            ZFLabel * xMark = [[ZFLabel alloc] initWithFrame:CGRectMake(0, 0, 2, 5)];
+            ZFLabel * xMark = [[ZFLabel alloc] initWithFrame:CGRectMake(0, 0, 1, 5)];
             CGPoint xMark_center = CGPointMake(center_xPos, center_yPos+_xLineNameLabelToXAxisLinePadding+xMark.frame.size.height+leaveHeigh);
-            xMark.backgroundColor = ZFLightGray;
+//            xMark.backgroundColor = UICOLOR_RGB_Alpha(0xafafaf, 1);
             xMark.center = xMark_center;
             [self.xAxisLine addSubview:xMark];
 
@@ -329,21 +331,44 @@ CGFloat const leaveHeigh = 30.f;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //滚动时重设y轴的frame
     self.yAxisLine.frame = CGRectMake(scrollView.contentOffset.x, self.yAxisLine.frame.origin.y, self.yAxisLine.frame.size.width, self.yAxisLine.frame.size.height);
-    
     if (!_isShowSeparate) {
         for (NSInteger i = 0; i < self.sectionArray.count; i++) {
             UIView * sectionView = self.sectionArray[i];
             sectionView.frame = CGRectMake(self.yAxisLine.yLineStartXPos + self.contentOffset.x, sectionView.frame.origin.y, sectionView.frame.size.width, sectionView.frame.size.height);
         }
     }
+
+
+}
+
+-(void)scrollToLeft{
+//    NSArray *count = [_xLineValueArray safe_objectAtIndex:0];
+//    if (count.count>5) {
+//        [self setContentOffset:CGPointMake((_groupWidth*(count.count-1))-self.yAxisLine.yLineStartXPos,0) animated:YES];
+// scrollView 偏移量
+        [self  scrollRectToVisible:CGRectMake(0, 0, 10000, 10000) animated:YES];
+//    }
+    
+
+}
+
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView{
+
+}
+-(void)scrollViewDidChangeAdjustedContentInset{
+    
 }
 
 #pragma mark - 重写setter,getter方法
-
+//自动滚动到最底
 - (void)setFrame:(CGRect)frame{
     [super setFrame:frame];
     self.xAxisLine.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);    
     self.yAxisLine.frame = CGRectMake(self.contentOffset.x, 0, ZFAxisLineStartXPos, frame.size.height);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self scrollToLeft];
+    });
+
 }
 
 /** y轴背景颜色 */
