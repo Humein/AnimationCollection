@@ -60,6 +60,10 @@
 }
 
 -(void)popView{
+    
+    [self popOver];
+    return;
+    
     AnimationViewController *VC = [AnimationViewController new];
     
     [self.navigationController pushViewController:VC animated:YES];
@@ -221,8 +225,8 @@
 }
 -(void)popOver{
 
-     NSArray *arr = @[@"1",@"2",@"3"];
-     PopTableView *pooView = [[PopTableView alloc]initWithFrame:CGRectMake(0, 0, 258*0.5, arr.count * 30+20) dataSource:arr withBGView:@"弹窗"];
+     NSArray *arr = @[@"1",@"2",@"3",@"1",@"2",@"3"];
+     PopTableView *pooView = [[PopTableView alloc]initWithFrame:CGRectMake(80,64, 258*0.5, arr.count * 30+20) dataSource:arr withBGView:@"弹窗"];
       pooView.delegate = self;
     [self.view addSubview:pooView];
 

@@ -9,7 +9,8 @@
 #import "PopTableView.h"
 @interface PopTableView()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 {
-    //    UIImageView *_bgImage;
+    UIImageView *_imageView;
+    
 }
 @property(nonatomic,copy) NSMutableArray *cellDataSource;
 @property(nonatomic,strong) UITableView *tableView;
@@ -20,7 +21,7 @@
 @implementation PopTableView
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:_imageView.bounds style:UITableViewStylePlain];
         _tableView.separatorColor = [UIColor grayColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
         _tableView.showsVerticalScrollIndicator = YES;
@@ -42,9 +43,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-//        _bgImage = [[UIImageView alloc]initWithFrame:self.bounds];
-//        _bgImage.image = [UIImage imageNamed:bgView];
-//        _bgImage.userInteractionEnabled = YES;
         _bgImage = bgView;
         _cellDataSource= [NSMutableArray arrayWithArray:dataSource];
 //        [self loadData];
@@ -66,7 +64,7 @@
     containerView.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+      _imageView = [[UIImageView alloc] initWithFrame:self.frame];
     {
         CGFloat top = 10;     // 顶端预留部分
         CGFloat bottom = 10 ; // 底端预留部分
@@ -75,13 +73,13 @@
         UIEdgeInsets insets = UIEdgeInsetsMake(top, left, bottom, right);
         UIImage *image = [UIImage imageNamed:_bgImage];
         image = [image resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-        [imageView setImage:image];
+        [_imageView setImage:image];
     }
     
-    [imageView addSubview:self.tableView];
+    [_imageView addSubview:self.tableView];
     self.tableView.clipsToBounds = YES;
-    imageView.userInteractionEnabled = YES;
-    [containerView addSubview:imageView];
+    _imageView.userInteractionEnabled = YES;
+    [containerView addSubview:_imageView];
     
     self.containerView = containerView;
 
@@ -94,7 +92,7 @@
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [keyWindow addSubview:self.containerView];
     [keyWindow bringSubviewToFront:self.containerView];
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 
@@ -121,6 +119,7 @@
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.textColor = [UIColor redColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.text = [self.cellDataSource objectAtIndex:indexPath.row];
 //    cell.textLabel.text = cellViewModel.name;
     return cell;
 }
