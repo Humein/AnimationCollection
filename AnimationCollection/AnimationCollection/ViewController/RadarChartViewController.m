@@ -29,7 +29,7 @@
     self.radarChart.polygonLineWidth = 1.f;
     self.radarChart.radarLineWidth = 1.f;
     self.radarChart.separateLineWidth = 1.f;
-    
+
     [self.view addSubview:self.radarChart];
     [self.radarChart strokePath];
     
@@ -81,13 +81,13 @@
 //    return 4;
 //}
 
-//- (CGFloat)radiusExtendLengthForRadarChart:(ZFRadarChart *)radarChart itemIndex:(NSInteger)itemIndex{
-//    if (itemIndex == 0) {
-//        return 50.f;
-//    }
-//
-//    return 25.f;
-//}
+- (CGFloat)radiusExtendLengthForRadarChart:(ZFRadarChart *)radarChart itemIndex:(NSInteger)itemIndex{
+    if (itemIndex == 0) {
+        return 10.f;
+    }
+
+    return 25.f;
+}
 //
 //- (CGFloat)valueRotationAngleForRadarChart:(ZFRadarChart *)radarChart{
 //    return 45.f;

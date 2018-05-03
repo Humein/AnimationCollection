@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331C72FB2099E4FB00C2AB9E /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331C72F92099E4FA00C2AB9E /* PopViewController.m */; };
+		331C72FE2099E51400C2AB9E /* PopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 331C72FD2099E51400C2AB9E /* PopTableView.m */; };
 		3350E1192093018000184F2F /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E1182093018000184F2F /* RadarChartViewController.m */; };
 		3350E120209304BD00184F2F /* ZFRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E11A209304BC00184F2F /* ZFRadarChart.m */; };
 		3350E121209304BD00184F2F /* ZFPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E11B209304BC00184F2F /* ZFPolygon.m */; };
@@ -48,7 +50,6 @@
 		33B8C1CF1F146ECB00628F21 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1CE1F146ECB00628F21 /* BaseView.m */; };
 		33B8C1D21F146FD300628F21 /* CombobaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8C1D11F146FD300628F21 /* CombobaseView.m */; };
 		33E5703B1EAA01F900C84C19 /* POPNumberAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */; };
-		33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EB8CB81EFA68EA0035F12B /* PopViewController.m */; };
 		71A6B771D66C336006ECA91E /* libPods-AnimationCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331C72F92099E4FA00C2AB9E /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		331C72FA2099E4FA00C2AB9E /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		331C72FC2099E51400C2AB9E /* PopTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopTableView.h; sourceTree = "<group>"; };
+		331C72FD2099E51400C2AB9E /* PopTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopTableView.m; sourceTree = "<group>"; };
 		3350E1172093017F00184F2F /* RadarChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadarChartViewController.h; sourceTree = "<group>"; };
 		3350E1182093018000184F2F /* RadarChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadarChartViewController.m; sourceTree = "<group>"; };
 		3350E11A209304BC00184F2F /* ZFRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFRadarChart.m; sourceTree = "<group>"; };
@@ -154,8 +159,6 @@
 		33B8C1D11F146FD300628F21 /* CombobaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombobaseView.m; sourceTree = "<group>"; };
 		33E570391EAA01F900C84C19 /* POPNumberAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPNumberAnimation.h; sourceTree = "<group>"; };
 		33E5703A1EAA01F900C84C19 /* POPNumberAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPNumberAnimation.m; sourceTree = "<group>"; };
-		33EB8CB71EFA68EA0035F12B /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
-		33EB8CB81EFA68EA0035F12B /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		3F03281909722BE9064CE5D6 /* libPods-AnimationCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnimationCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		637A14AB88A4DBA967F6293F /* Pods-AnimationCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.release.xcconfig"; sourceTree = "<group>"; };
 		6E2B5EB1C27D809AD8EDF90A /* Pods-AnimationCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationCollection/Pods-AnimationCollection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +190,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331C72F82099E4FA00C2AB9E /* POP */ = {
+			isa = PBXGroup;
+			children = (
+				331C72F92099E4FA00C2AB9E /* PopViewController.m */,
+				331C72FA2099E4FA00C2AB9E /* PopViewController.h */,
+				331C72FC2099E51400C2AB9E /* PopTableView.h */,
+				331C72FD2099E51400C2AB9E /* PopTableView.m */,
+			);
+			path = POP;
+			sourceTree = "<group>";
+		};
 		3350E1162093012100184F2F /* RadarChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +345,7 @@
 		336D7D9E1E9F614200E82E43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				331C72F82099E4FA00C2AB9E /* POP */,
 				33B8C1CC1F145E1700628F21 /* ModuleView */,
 				33B8C1BF1F145D4D00628F21 /* DrawLine:NumPOP:Progress */,
 				33C5BD661F0DDE5C0085C595 /* Chart */,
@@ -347,8 +362,6 @@
 				336D7DAE1E9F63FE00E82E43 /* ModalViewController.m */,
 				33A3882B1F0250FA00321D37 /* AnimationViewController.h */,
 				33A3882C1F0250FA00321D37 /* AnimationViewController.m */,
-				33EB8CB71EFA68EA0035F12B /* PopViewController.h */,
-				33EB8CB81EFA68EA0035F12B /* PopViewController.m */,
 				3350E1172093017F00184F2F /* RadarChartViewController.h */,
 				3350E1182093018000184F2F /* RadarChartViewController.m */,
 			);
@@ -637,7 +650,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33EB8CB91EFA68EA0035F12B /* PopViewController.m in Sources */,
 				3350E15A2093076300184F2F /* ZFLineChart.m in Sources */,
 				3350E14F2093075B00184F2F /* UIBezierPath+Zirkfied.m in Sources */,
 				3350E14E2093075B00184F2F /* UIView+Zirkfied.m in Sources */,
@@ -670,8 +682,10 @@
 				3350E120209304BD00184F2F /* ZFRadarChart.m in Sources */,
 				3350E122209304BD00184F2F /* ZFRadar.m in Sources */,
 				33738EF220919AE500AD7C9B /* UIBezierWaveView.m in Sources */,
+				331C72FB2099E4FB00C2AB9E /* PopViewController.m in Sources */,
 				33B8C1CB1F145D4D00628F21 /* UIView+Frame.m in Sources */,
 				3350E14C2093075B00184F2F /* ZFConst.m in Sources */,
+				331C72FE2099E51400C2AB9E /* PopTableView.m in Sources */,
 				33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */,
 				33B8C1CA1F145D4D00628F21 /* NumberAnimation.m in Sources */,
 			);
