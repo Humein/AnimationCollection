@@ -146,6 +146,18 @@
     [self.containerView removeFromSuperview];
 }
 
+// MARK: UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    // 解决tableView手势冲突
+    if([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]){
+        return NO;
+    };
+    // 手动调用点击方法
+    [self containerViewClick];
+    return YES;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
