@@ -7,14 +7,14 @@
 //
 
 #import "PopTableView.h"
-@interface PopTableView()<UITableViewDelegate,UITableViewDataSource>
+@interface PopTableView()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 {
     //    UIImageView *_bgImage;
 }
 @property(nonatomic,copy) NSMutableArray *cellDataSource;
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSString *bgImage;
-@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) UIView *containerView;
 
 @end
 @implementation PopTableView
@@ -36,10 +36,66 @@
     return _tableView;
 }
 
+#pragma mark - InitMethod
+- (instancetype)initWithFrame:(CGRect)frame dataSource:(NSArray<NSArray *> *)dataSource withBGView:(NSString *)bgView{
+    
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+//        _bgImage = [[UIImageView alloc]initWithFrame:self.bounds];
+//        _bgImage.image = [UIImage imageNamed:bgView];
+//        _bgImage.userInteractionEnabled = YES;
+        _bgImage = bgView;
+        _cellDataSource= [NSMutableArray arrayWithArray:dataSource];
+//        [self loadData];
+        [self addSubviews];
+    }
+    return self;
+}
 
 
+- (void)addSubviews {
 
+    
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIView *containerView = [[UIView alloc] initWithFrame:keyWindow.frame];
+    containerView.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerViewClick)];
+    tap.delegate = self;
+    [containerView addGestureRecognizer:tap];
+    containerView.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    {
+        CGFloat top = 10;     // 顶端预留部分
+        CGFloat bottom = 10 ; // 底端预留部分
+        CGFloat left = 40; // 左端预留部分
+        CGFloat right = 40; // 右端预留部分
+        UIEdgeInsets insets = UIEdgeInsetsMake(top, left, bottom, right);
+        UIImage *image = [UIImage imageNamed:_bgImage];
+        image = [image resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+        [imageView setImage:image];
+    }
+    
+    [imageView addSubview:self.tableView];
+    self.tableView.clipsToBounds = YES;
+    imageView.userInteractionEnabled = YES;
+    [containerView addSubview:imageView];
+    
+    self.containerView = containerView;
 
+}
+
+#pragma mark - layout subviews
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    [keyWindow addSubview:self.containerView];
+    [keyWindow bringSubviewToFront:self.containerView];
+    [_tableView reloadData];
+}
 
 
 #pragma mark - UITableView Delegate
@@ -63,9 +119,9 @@
     }
     MatchesSwitchMdoel *cellViewModel = [self.cellDataSource objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
-    cell.textLabel.textColor = UIColorFromRGBA(0x333333, 1);
+    cell.textLabel.textColor = [UIColor redColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.text = cellViewModel.name;
+//    cell.textLabel.text = cellViewModel.name;
     return cell;
 }
 
@@ -83,6 +139,11 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+
+- (void)containerViewClick {
+    [self.containerView removeFromSuperview];
 }
 
 /*

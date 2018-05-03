@@ -19,7 +19,8 @@
 #import "UIBezierPathAndCAShapeLayerView.h"
 #import "UIBezierWaveView.h"
 #import "RadarChartViewController.h"
-@interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate,PopViewControllerDelegate>
+#import "PopTableView.h"
+@interface ViewController ()<UIViewControllerTransitioningDelegate,UIPopoverPresentationControllerDelegate,PopViewControllerDelegate,MatchesSwitchMdoelCellDelegate>
 {
     CGFloat _i;
 }
@@ -219,6 +220,17 @@
     
 }
 -(void)popOver{
+
+     NSArray *arr = @[@"1",@"2",@"3"];
+     PopTableView *pooView = [[PopTableView alloc]initWithFrame:CGRectMake(0, 0, 258*0.5, arr.count * 30+20) dataSource:arr withBGView:@"弹窗"];
+      pooView.delegate = self;
+    [self.view addSubview:pooView];
+
+    
+    
+    {
+        return;
+        
     //初始化 VC
     self.itemPopVC = [[PopViewController alloc] init];
     // 设置大小
@@ -244,6 +256,7 @@
 
     //content尺寸
     self.itemPopVC.preferredContentSize = CGSizeMake(400, 400);
+    }
 }
 
 #pragma mark popOverDelegate
