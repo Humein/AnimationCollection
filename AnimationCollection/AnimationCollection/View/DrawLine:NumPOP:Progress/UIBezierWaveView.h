@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIBezierWaveView : UIView
-
+- (void)drawBezierPath:(CGRect)rect;
 @end

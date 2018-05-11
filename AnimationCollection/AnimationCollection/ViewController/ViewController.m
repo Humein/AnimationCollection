@@ -181,11 +181,63 @@
 
 -(void)underLineDraw{
 
-    UIBezierWaveView *BS = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 264, 200, 60)];
-    [self.view addSubview:BS];
+
+//    UIBezierWaveView *BS3 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 200, self.view.frame.size.width, 5)];
+
+//    UIBezierWaveView *BS2 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 300, self.view.frame.size.width*0.5, 5)];
+//    [self.view addSubview:BS1];
+//    [self.view addSubview:BS2];
+//    [self.view addSubview:BS3];
+    
+    UIBezierWaveView *BS1 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];
+//    BS1.backgroundColor = [UIColor grayColor];
+    
+//    CGRect rect1 = CGRectMake(0, 260, 100, 5);
+    CGRect rect2 = CGRectMake(100, 170, self.view.frame.size.width*0.5, 5);
+    CGRect rect3 = CGRectMake(0, 180, self.view.frame.size.width*0.5, 5);
+    CGRect rect4 = CGRectMake(180, 190, self.view.frame.size.width*0.25, 5);
+
+//    [BS1 drawBezierPath:rect1];
+    [BS1 drawBezierPath:rect2];
+    [BS1 drawBezierPath:rect3];
+    [BS1 drawBezierPath:rect4];
+
+    [self.view addSubview:BS1];
+
+
     
 
+
 }
+
+//- (void)doSomething {
+//    NSMutableArray *collection = @[].mutableCopy;
+//    for (int i = 0; i < 10e6; ++i) {
+//        @autoreleasepool {
+//            NSString *str = [NSString stringWithFormat:@"hi + %d", i];
+//            [collection addObject:str];
+//        }
+//    }
+//    NSLog(@"finished!");
+//}
+
+//- (void)doSomething {
+//    int count = 0;
+//    NSMutableArray *collection = @[].mutableCopy;
+//    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//    for (int i = 0; i < 10e6; ++i) {
+//        NSString *str = [NSString stringWithFormat:@"hi + %d", i];
+//        [collection addObject:str];
+//        if (++count == 100) {
+//            /** 每一百次倾倒一次池子 */
+//            [pool drain];
+//            count = 0;
+//        }
+//    }
+//    /** 用来倾倒当i的个数不是100的倍数时，比如读取数据库数据时,数据总数为不确定值 */
+//    [pool drain];
+//    NSLog(@"finished!");
+//}
 
 #pragma mark -Action
 -(void)change{
