@@ -89,10 +89,20 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
+}
+
+- (void)show {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [keyWindow addSubview:self.containerView];
     [keyWindow bringSubviewToFront:self.containerView];
     [self.tableView reloadData];
+
+}
+
+- (void)dismiss {
+    [self.containerView removeFromSuperview];
+    [self removeFromSuperview];
 }
 
 

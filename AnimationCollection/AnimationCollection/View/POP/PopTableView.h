@@ -17,4 +17,6 @@
 @interface PopTableView : UIView
 @property(nonatomic,assign) id<MatchesSwitchMdoelCellDelegate> delegate;
 - (instancetype)initWithFrame:(CGRect)frame dataSource:(NSArray<NSArray *> *)dataSource withBGView:(NSString *)bgView;
+-(void)show;
+-(void)dismiss;
 @end

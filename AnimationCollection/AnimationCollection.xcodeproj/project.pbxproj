@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3305031920ADA61900C9B27D /* StateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3305031820ADA61900C9B27D /* StateAnimationView.m */; };
+		3305031C20ADA63900C9B27D /* StateAnimationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3305031B20ADA63900C9B27D /* StateAnimationObject.m */; };
+		3305031F20ADA69500C9B27D /* FeedBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3305031E20ADA69500C9B27D /* FeedBackView.m */; };
+		3305032120ADB94100C9B27D /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 3305032020ADB94100C9B27D /* README.markdown */; };
 		331C72FB2099E4FB00C2AB9E /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331C72F92099E4FA00C2AB9E /* PopViewController.m */; };
 		331C72FE2099E51400C2AB9E /* PopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 331C72FD2099E51400C2AB9E /* PopTableView.m */; };
 		3350E1192093018000184F2F /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E1182093018000184F2F /* RadarChartViewController.m */; };
@@ -71,6 +75,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3305031720ADA61900C9B27D /* StateAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateAnimationView.h; sourceTree = "<group>"; };
+		3305031820ADA61900C9B27D /* StateAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateAnimationView.m; sourceTree = "<group>"; };
+		3305031A20ADA63900C9B27D /* StateAnimationObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateAnimationObject.h; sourceTree = "<group>"; };
+		3305031B20ADA63900C9B27D /* StateAnimationObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateAnimationObject.m; sourceTree = "<group>"; };
+		3305031D20ADA69500C9B27D /* FeedBackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedBackView.h; sourceTree = "<group>"; };
+		3305031E20ADA69500C9B27D /* FeedBackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedBackView.m; sourceTree = "<group>"; };
+		3305032020ADB94100C9B27D /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		331C72F92099E4FA00C2AB9E /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		331C72FA2099E4FA00C2AB9E /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
 		331C72FC2099E51400C2AB9E /* PopTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopTableView.h; sourceTree = "<group>"; };
@@ -190,6 +201,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3305031620ADA5F800C9B27D /* AnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				3305031720ADA61900C9B27D /* StateAnimationView.h */,
+				3305031820ADA61900C9B27D /* StateAnimationView.m */,
+				3305031A20ADA63900C9B27D /* StateAnimationObject.h */,
+				3305031B20ADA63900C9B27D /* StateAnimationObject.m */,
+			);
+			path = AnimationView;
+			sourceTree = "<group>";
+		};
 		331C72F82099E4FA00C2AB9E /* POP */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +219,8 @@
 				331C72FA2099E4FA00C2AB9E /* PopViewController.h */,
 				331C72FC2099E51400C2AB9E /* PopTableView.h */,
 				331C72FD2099E51400C2AB9E /* PopTableView.m */,
+				3305031D20ADA69500C9B27D /* FeedBackView.h */,
+				3305031E20ADA69500C9B27D /* FeedBackView.m */,
 			);
 			path = POP;
 			sourceTree = "<group>";
@@ -280,6 +304,7 @@
 		336D7D5C1E9F0D5700E82E43 = {
 			isa = PBXGroup;
 			children = (
+				3305032020ADB94100C9B27D /* README.markdown */,
 				336D7D671E9F0D5700E82E43 /* AnimationCollection */,
 				336D7D811E9F0D5700E82E43 /* AnimationCollectionTests */,
 				336D7D8C1E9F0D5700E82E43 /* AnimationCollectionUITests */,
@@ -345,6 +370,7 @@
 		336D7D9E1E9F614200E82E43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3305031620ADA5F800C9B27D /* AnimationView */,
 				331C72F82099E4FA00C2AB9E /* POP */,
 				33B8C1CC1F145E1700628F21 /* ModuleView */,
 				33B8C1BF1F145D4D00628F21 /* DrawLine:NumPOP:Progress */,
@@ -577,6 +603,7 @@
 			files = (
 				336D7D781E9F0D5700E82E43 /* LaunchScreen.storyboard in Resources */,
 				336D7D751E9F0D5700E82E43 /* Assets.xcassets in Resources */,
+				3305032120ADB94100C9B27D /* README.markdown in Resources */,
 				336D7D731E9F0D5700E82E43 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +686,7 @@
 				3350E1502093075B00184F2F /* UIColor+Zirkfied.m in Sources */,
 				336D7DAC1E9F62C400E82E43 /* DismissingAnimator.m in Sources */,
 				3350E1192093018000184F2F /* RadarChartViewController.m in Sources */,
+				3305031C20ADA63900C9B27D /* StateAnimationObject.m in Sources */,
 				3350E1472093075B00184F2F /* ZFYAxisLine.m in Sources */,
 				3350E14A2093075B00184F2F /* IndicatorView.m in Sources */,
 				3350E1592093076300184F2F /* ZFLine.m in Sources */,
@@ -684,10 +712,12 @@
 				33738EF220919AE500AD7C9B /* UIBezierWaveView.m in Sources */,
 				331C72FB2099E4FB00C2AB9E /* PopViewController.m in Sources */,
 				33B8C1CB1F145D4D00628F21 /* UIView+Frame.m in Sources */,
+				3305031F20ADA69500C9B27D /* FeedBackView.m in Sources */,
 				3350E14C2093075B00184F2F /* ZFConst.m in Sources */,
 				331C72FE2099E51400C2AB9E /* PopTableView.m in Sources */,
 				33B8C1C81F145D4D00628F21 /* LabelProgress.m in Sources */,
 				33B8C1CA1F145D4D00628F21 /* NumberAnimation.m in Sources */,
+				3305031920ADA61900C9B27D /* StateAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

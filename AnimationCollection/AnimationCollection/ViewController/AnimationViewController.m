@@ -33,6 +33,8 @@
 #import <POP.h>
 #import "ZFChart.h"
 #import "CombobaseView.h"
+#import "StateAnimationObject.h"
+
 @interface AnimationViewController ()<ZFGenericChartDataSource, ZFLineChartDelegate>
 @property(nonatomic,strong)UIView *BGView;
 @property(nonatomic,strong)UIView *POPBasicView;
@@ -42,6 +44,7 @@
 
 @property(nonatomic,strong)UIButton *imageBtn;
 @property(nonatomic,strong)UIView *btnBackView;
+@property (nonatomic, strong)StateAnimationObject *stateView;
 
 @property (nonatomic, strong) ZFLineChart * lineChart;
 @end
@@ -168,34 +171,36 @@
     // Do any additional setup after loading the view.
     self.title = @"Animation";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.stateView = [[StateAnimationObject alloc]initWithFrame:CGRectZero bringTheinfo:nil];
+    [self.stateView show];
 
-
+    Weak_Self;
     CombobaseView *comboView = [[CombobaseView alloc]initWithFrame:CGRectMake(20, 84, 264, 264) itemCount:3 itemWidth:41 andModel:nil withCallBack:^(NSInteger tag) {
-        
+// 无法销毁
         switch (tag) {
             case 0:
-                [self addBasicView];
+                [weakSelf addBasicView];
                 break;
             case 1:
-                [self addSpringView];
+                [weakSelf addSpringView];
                 break;
             case 2:
-                [self addDecayView];
+                [weakSelf addDecayView];
                 break;
             case 3:
-                [self POPAnimatableProperty];
+                [weakSelf POPAnimatableProperty];
                 break;
             case 4:
-                
-                    {
-                        if (_BGView) {
-                            [self.BGView removeFromSuperview];
-                            self.BGView = nil;
-                        }else{
-                            [self.view addSubview:self.BGView];
-                            
-                        }
-                    }
+//                [weakSelf.stateView show];
+//                    {
+//                        if (_BGView) {
+//                            [self.BGView removeFromSuperview];
+//                            self.BGView = nil;
+//                        }else{
+//                            [self.view addSubview:self.BGView];
+//
+//                        }
+//                    }
                 break;
                 case 5:
                 [self addViewCenterAni];
@@ -205,9 +210,7 @@
         }
         
     }];
-    
     [self.view addSubview:comboView];
-    
 }
 
 
@@ -256,18 +259,22 @@
 //    POPBasicAnimation使用最广泛 提供固定时间间隔的动画(如淡入淡出效果)
     
 
-    _POPBasicView = [[UIView alloc]initWithFrame:CGRectMake(100, 164, 64, 64)];
+    _POPBasicView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     _POPBasicView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:_POPBasicView];
     
-    POPBasicAnimation *animPosition= [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-    animPosition.toValue = @(_POPBasicView.center.y+100);
-    animPosition.beginTime = CACurrentMediaTime() + 1.0f;
-    animPosition.duration = 0.3f;
+    POPBasicAnimation *animPosition= [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+    animPosition.toValue = @(_POPBasicView.center.y+64);
+    animPosition.duration = 1.3f;
     animPosition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 //    animPosition.repeatCount = 5;
 //    animPosition.removedOnCompletion = YES;
 
+    POPBasicAnimation *animPositionOut= [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+    animPositionOut.toValue = @(_POPBasicView.center.y-64);
+    animPositionOut.duration = 1.3f;
+    animPositionOut.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
     
     
     POPBasicAnimation *animAlpha = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
@@ -276,9 +283,14 @@
     animAlpha.duration = 2.0f;
     
     
-    [_POPBasicView pop_addAnimation:animAlpha forKey:@"fade"];
+//    [_POPBasicView pop_addAnimation:animAlpha forKey:@"fade"];
     [_POPBasicView pop_addAnimation:animPosition forKey:@"position"];
+
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_POPBasicView pop_addAnimation:animPositionOut forKey:@"position"];
+
+    });
     
 }
 

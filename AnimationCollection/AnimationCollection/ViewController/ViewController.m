@@ -45,7 +45,7 @@
     
     
     
-    
+
     
     [self addCircleView];
     [self addSlider];
@@ -64,9 +64,6 @@
     [self popOver];
     return;
     
-    AnimationViewController *VC = [AnimationViewController new];
-    
-    [self.navigationController pushViewController:VC animated:YES];
 
 }
 
@@ -81,7 +78,7 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source
 {
-    return [PresentingAnimator initWithWidth:22];
+    return [PresentingAnimator initWithWidth:0];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
@@ -192,15 +189,31 @@
     UIBezierWaveView *BS1 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];
 //    BS1.backgroundColor = [UIColor grayColor];
     
-//    CGRect rect1 = CGRectMake(0, 260, 100, 5);
+    CGRect rect1 = CGRectMake(0, 260, 100, 5);
     CGRect rect2 = CGRectMake(100, 170, self.view.frame.size.width*0.5, 5);
     CGRect rect3 = CGRectMake(0, 180, self.view.frame.size.width*0.5, 5);
     CGRect rect4 = CGRectMake(180, 190, self.view.frame.size.width*0.25, 5);
-
+    CGRect rect5 = CGRectMake(180, 200, self.view.frame.size.width*0.25, 5);
+    CGRect rect6 = CGRectMake(180, 210, self.view.frame.size.width*0.25-50, 5);
+    CGRect rect7 = CGRectMake(180, 220, self.view.frame.size.width*0.25, 5);
+    CGRect rect8 = CGRectMake(180, 230, self.view.frame.size.width*0.25, 5);
+    CGRect rect9 = CGRectMake(180, 240, self.view.frame.size.width*0.25+20, 5);
+    
+    
+    
+    NSMutableArray *rectArray = [NSMutableArray arrayWithObjects:[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8], nil];
+   
+        
+    for (NSValue *rect in rectArray){
+        
+        [BS1 drawBezierPath:[rect CGRectValue]];
+    }
+    
+    
 //    [BS1 drawBezierPath:rect1];
-    [BS1 drawBezierPath:rect2];
-    [BS1 drawBezierPath:rect3];
-    [BS1 drawBezierPath:rect4];
+//    [BS1 drawBezierPath:rect2];
+//    [BS1 drawBezierPath:rect3];
+//    [BS1 drawBezierPath:rect4];
 
     [self.view addSubview:BS1];
 
@@ -275,66 +288,46 @@
  
     
 }
+
 -(void)popOver{
 
      NSArray *arr = @[@"1",@"2",@"3",@"1",@"2",@"3"];
      PopTableView *pooView = [[PopTableView alloc]initWithFrame:CGRectMake(80,64, 258*0.5, arr.count * 30+20) dataSource:arr withBGView:@"弹窗"];
       pooView.delegate = self;
-    [self.view addSubview:pooView];
-
+     [pooView show];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [pooView dismiss];
+    });
     
     
-    {
-        return;
-        
-    //初始化 VC
-    self.itemPopVC = [[PopViewController alloc] init];
-    // 设置大小
-//    self.itemPopVC.preferredContentSize = CGSizeMake(50, 30);
-    // 设置 Sytle
-    self.itemPopVC.modalPresentationStyle = UIModalPresentationPopover;
-    //可以指示小箭头颜色
-    self.itemPopVC.popoverPresentationController.backgroundColor = [UIColor grayColor];
-    //设置依附的按钮
-//    self.itemPopVC.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
-    // 需要通过 sourceView 来判断位置的
-    self.itemPopVC.popoverPresentationController.sourceView = self.NumberView;
-    // 指定箭头所指区域的矩形框范围（位置和尺寸）,以sourceView的左上角为坐标原点
-    // 这个可以 通过 Point 或  Size 调试位置
-    self.itemPopVC.popoverPresentationController.sourceRect = self.NumberView.bounds;
-    // 箭头方向
-    self.itemPopVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-    // 设置代理
-    self.itemPopVC.popoverPresentationController.delegate = self;
-    self.itemPopVC.PopViewDelegate = self;
-    [self presentViewController:self.itemPopVC animated:YES completion:nil];
-  
-
-    //content尺寸
-    self.itemPopVC.preferredContentSize = CGSizeMake(400, 400);
-    }
+    
 }
 
 #pragma mark popOverDelegate
-- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
-    return UIModalPresentationNone; //不适配
-}
 
-- (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController{
-    return YES;   //点击蒙版popover消失， 默认YES
-}
-
--(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)cellClick:(MatchesSwitchMdoel *)viewModel{
     RadarChartViewController *radarChartView = [RadarChartViewController new];
-    switch (indexPath.row) {
-        case 0:
+    AnimationViewController *VC = [AnimationViewController new];
+
+    NSString *stTmp = [NSString stringWithFormat:@"%@",viewModel];
+    NSInteger state = [stTmp integerValue];
+    switch (state) {
+        case 1:
             [self.navigationController pushViewController:radarChartView animated:YES];
             break;
-            
+        case 2:
+            [self.navigationController pushViewController:VC animated:YES];
+            break;
+        case 3:
+            [self modal:nil];
+            break;
+      
         default:
             break;
     }
+
 }
+
 
 
 -(void)clickNumber:(UITapGestureRecognizer *)gestureRecognizer{
@@ -353,6 +346,9 @@
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.timer setFireDate:[NSDate date]];
 }
+
+
+
 -(void)dealloc
 {
 //    [_timer invalidate];
