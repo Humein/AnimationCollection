@@ -24,7 +24,7 @@
     if(self)
     {
         _frame = frame.size.height ?  frame : CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 44);
-        _infoDic = infoDic ? [infoDic copy] : @"没";
+        _infoDic = infoDic ? [infoDic copy] : @{@"messsage":@"nihao",@"goldScore":@"520"};
         
         [self addSubviews];
     }
@@ -42,10 +42,32 @@
 //    [containerView addGestureRecognizer:tap];
     containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
     
+    
     _contentView = [[UIView alloc] initWithFrame:_frame];
-    _contentView.backgroundColor =  [UIColor redColor];
+    _contentView.backgroundColor =  [UIColor yellowColor];
+    
+    
+    
+    
+    UILabel * noteLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, keyWindow.frame.size.width, 44)];
+    noteLabel.text = [NSString stringWithFormat:@"任务完成,获得%@金币和%@成长值",_infoDic[@"messsage"],_infoDic[@"goldScore"]];
+    noteLabel.textColor = [UIColor whiteColor];
+    noteLabel.font = [UIFont systemFontOfSize:15];
+    noteLabel.backgroundColor = [UIColor redColor];
+    noteLabel.numberOfLines = 0;
+    noteLabel.textAlignment = NSTextAlignmentCenter;
+    [_contentView addSubview:noteLabel];
+    //    [noteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.center.equalTo(_contentView);
+    //    }];
+    
+    
+    
     
     [containerView addSubview:_contentView];
+
+    
+
 
     
    
