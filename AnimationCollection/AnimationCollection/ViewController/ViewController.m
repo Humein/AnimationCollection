@@ -27,6 +27,7 @@
 @property(nonatomic,strong) LineView *circleView;
 @property(nonatomic,strong) NumberAnimation *NumberView;
 @property (nonatomic, strong) PopViewController *itemPopVC;
+@property (nonatomic, strong) UITextView *textLabel;
 
 - (void)addCircleView;
 - (void)addSlider;
@@ -52,7 +53,6 @@
     [self addChangeProgressButtonAction];
     [self addModalButtonAction];
     [self POPNumberAnimation];
-    [self underLineDraw];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -178,30 +178,29 @@
 
 -(void)underLineDraw{
 
+    self.textLabel  = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];
+    self.textLabel.font = [UIFont systemFontOfSize:15];
+    self.textLabel.scrollEnabled = NO;
+    self.textLabel.textAlignment = NSTextAlignmentLeft;
+    self.textLabel.text = @"文字文字文字文字文字文字文字文字文字文字";
+    [self.view addSubview:self.textLabel];
 
-//    UIBezierWaveView *BS3 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 200, self.view.frame.size.width, 5)];
-
-//    UIBezierWaveView *BS2 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 300, self.view.frame.size.width*0.5, 5)];
-//    [self.view addSubview:BS1];
-//    [self.view addSubview:BS2];
-//    [self.view addSubview:BS3];
     
-    UIBezierWaveView *BS1 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];
-//    BS1.backgroundColor = [UIColor grayColor];
+    UIBezierWaveView *BS1 = [[UIBezierWaveView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     
-    CGRect rect1 = CGRectMake(0, 260, 100, 5);
-    CGRect rect2 = CGRectMake(100, 170, self.view.frame.size.width*0.5, 5);
-    CGRect rect3 = CGRectMake(0, 180, self.view.frame.size.width*0.5, 5);
-    CGRect rect4 = CGRectMake(180, 190, self.view.frame.size.width*0.25, 5);
-    CGRect rect5 = CGRectMake(180, 200, self.view.frame.size.width*0.25, 5);
-    CGRect rect6 = CGRectMake(180, 210, self.view.frame.size.width*0.25-50, 5);
-    CGRect rect7 = CGRectMake(180, 220, self.view.frame.size.width*0.25, 5);
-    CGRect rect8 = CGRectMake(180, 230, self.view.frame.size.width*0.25, 5);
-    CGRect rect9 = CGRectMake(180, 240, self.view.frame.size.width*0.25+20, 5);
+    CGRect rect1 = CGRectMake(0, 0 + 30, self.textLabel.text.length * 10, 5);
+//    CGRect rect2 = CGRectMake(100, 170, self.view.frame.size.width*0.5, 5);
+//    CGRect rect3 = CGRectMake(0, 180, self.view.frame.size.width*0.5, 5);
+//    CGRect rect4 = CGRectMake(180, 190, self.view.frame.size.width*0.25, 5);
+//    CGRect rect5 = CGRectMake(180, 200, self.view.frame.size.width*0.25, 5);
+//    CGRect rect6 = CGRectMake(180, 210, self.view.frame.size.width*0.25-50, 5);
+//    CGRect rect7 = CGRectMake(180, 220, self.view.frame.size.width*0.25, 5);
+//    CGRect rect8 = CGRectMake(180, 230, self.view.frame.size.width*0.25, 5);
+//    CGRect rect9 = CGRectMake(180, 240, self.view.frame.size.width*0.25+20, 5);
     
     
     
-    NSMutableArray *rectArray = [NSMutableArray arrayWithObjects:[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8], nil];
+    NSMutableArray *rectArray = [NSMutableArray arrayWithObjects:[NSValue valueWithCGRect:rect1], nil];
    
         
     for (NSValue *rect in rectArray){
@@ -210,18 +209,29 @@
     }
     
     
-//    [BS1 drawBezierPath:rect1];
-//    [BS1 drawBezierPath:rect2];
-//    [BS1 drawBezierPath:rect3];
-//    [BS1 drawBezierPath:rect4];
 
-    [self.view addSubview:BS1];
+    [self.textLabel addSubview:BS1];
 
+//使用drowRect绘制简单图形
+    //获取上下文
+    CGContextRef context=UIGraphicsGetCurrentContext();
+    //设置绘制地区的颜色
+    CGContextSetRGBFillColor(context, 1, 0, 0, 1);
+    //设置绘制的位置和大小
+    CGContextFillRect(context, CGRectMake(0, 100, 100, 100));
+    NSString * text=@"文字";
+    UIFont * font=[UIFont systemFontOfSize:14];
+    //设置文字的位置
+    [text drawAtPoint:CGPointMake(0, 200) withAttributes:font.fontDescriptor.fontAttributes];
+    UIImage * img=[UIImage imageNamed:@"pen"];
+    [img drawInRect:CGRectMake(0, 300, 100, 100)];
+    
 
     
 
 
 }
+
 
 //- (void)doSomething {
 //    NSMutableArray *collection = @[].mutableCopy;
@@ -319,7 +329,9 @@
             [self.navigationController pushViewController:VC animated:YES];
             break;
         case 3:
-            [self modal:nil];
+            [self underLineDraw];
+
+//            [self modal:nil];
             break;
       
         default:
