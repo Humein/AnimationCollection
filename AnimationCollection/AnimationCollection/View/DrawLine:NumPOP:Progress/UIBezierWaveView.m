@@ -6,6 +6,14 @@
 //  Copyright © 2018年 xinxin. All rights reserved.
 //
 
+//用正弦函数，计算波浪上的点用UIBezierPath的moveToPoint和addLineToPoint连接成线
+//
+//用定时器DisplayLink作为动力源
+//
+//停止波浪： 停止定时器并赋值为nil
+//
+//开启波浪： 新建定时器，并setNeedsDisplay
+
 #import "UIBezierWaveView.h"
 
 @implementation UIBezierWaveView{
@@ -51,6 +59,9 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
 //    [self drawBezierPath:rect];
+    
+    
+    
 
 }
 
